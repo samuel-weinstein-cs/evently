@@ -1,7 +1,7 @@
 # Evently
 ![Cheetah](https://i.imgflip.com/3mb4ww.jpg)
 ## Overview:
-Eventify is a platform for creating, finding and sharing events in your local communities in various categories. People can use Eventify to find new events happening around them, create events and meet people who have similar passions.
+Evently is a platform for creating, finding and sharing events in your local communities in various categories. People can use Evently to find new events happening around them, create events and meet people who have similar passions.
 ### Team Members
 - Richard Moebus
 - Sam Weinstein - Git Царь

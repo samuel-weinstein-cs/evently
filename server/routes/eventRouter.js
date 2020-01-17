@@ -21,9 +21,10 @@ eventRouter.get("/:id", async (req, res) => {
   }
 })
 
-eventRouter.get("/:category", async (req, res) => {
+eventRouter.get("/category/:category", async (req, res) => {
   try {
     const category = req.params.category
+    console.log(category)
     const catEvent = await Event.findAll({ where: { category } })
     res.json(catEvent)
   } catch (e) {
@@ -45,7 +46,7 @@ eventRouter.route("/:id")
   .put(async (req, res, next) => {
     try {
       const event = await Event.findByPk(req.params.id);
-      await Event.update(req.body)
+      await event.update(req.body)
       res.json(event)
     } catch (e) {
       next(e)

@@ -30,7 +30,7 @@ userRouter.get('/:id', async (req,res,next) => {
   }
 })
 
-userRouter.get('/:id/events', async (req, res,next) => {
+userRouter.get('/:id/events', async (req, res, next) => {
   try{
     const id = req.params.id;
     const events = await Event.findAll({
@@ -45,4 +45,27 @@ userRouter.get('/:id/events', async (req, res,next) => {
   }
 })
 
+userRouter.post('/', async (req, res, next) => {
+  try{
+    const data = req.body;
+    const user = await User.create(data);
+    res.json({user});
+  } catch(e) {
+    console.error(e);
+    next(e);
+  }
+})
+
+userRouter.put('/:id', async (req, res, next) => {
+  try{
+    const id = req.params.id
+    const data = req.body;
+    const user = await User.findByPk(id);
+    await user.update(data);
+    res.json({user});
+  } catch(e) {
+    console.error(e);
+    next(e);
+  }
+})
 module.exports= userRouter;

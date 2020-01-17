@@ -52,16 +52,27 @@ userRouter.get('/:id/events', async (req, res, next) => {
     next(e);
   }
 })
-
+/*
+username: Sequelize.STRING,
+password_digest: Sequelize.STRING,
+image_url: Sequelize.STRING,
+description: Sequelize.STRING,
+interests: Sequelize.STRING,
+join_date: Sequelize.STRING,
+*/
 userRouter.post('/', async (req, res, next) => {
   try{
-    const {username} = req.body;
+    const {username,image_url,description,interests,join_date} = req.body;
     const users=await User.findAll({where:{username}});
     if(users.length===0){
       const password_digest = await hashPassword(req.body.password);
       const user = await User.create({
         username,
-        password_digest
+        password_digest,
+        image_url,
+        description,
+        interests,
+        join_date
       })
       const respData= buildAuthResponse(user);
       res.json(respData);
@@ -70,6 +81,24 @@ userRouter.post('/', async (req, res, next) => {
     }
   } catch(e) {
     console.error(e);
+    next(e);
+  }
+})
+
+userRouter.post('/login', async (req, res, next) => {
+  try {
+    const user = await User.findOne({
+      where: {
+        username: req.body.username
+      }
+    })
+    if(await checkPassword(req.body.password, user.password_digest)) {
+      const respData = buildAuthResponse(user);
+      res.json(respData);
+    } else {
+      res.status(401).send('Invalid Credentials');
+    }
+  } catch (e){
     next(e);
   }
 })

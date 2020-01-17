@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const { Event } = require("../models")
 const eventRouter = Router();
+const {hashPassword, genToken, checkPassword, restrict} = require("../services/auth");
 
 
 eventRouter.get("/", async (req, res) => {

@@ -21,7 +21,7 @@ User.init({
 
 
 }, {
-    sequelize, 
+    sequelize,
   modelName: "user"
 
 })
@@ -36,7 +36,7 @@ Event.init({
   time: Sequelize.STRING,
   image_url: Sequelize.STRING,
   category: Sequelize.STRING
-  
+
 
 }, {
     sequelize,
@@ -52,4 +52,3 @@ module.exports = {
   Event,
   sequelize
 }
-

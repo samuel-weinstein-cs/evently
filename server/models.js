@@ -13,7 +13,7 @@ class User extends Sequelize.Model { }
 
 User.init({
   username: Sequelize.STRING,
-  password: Sequelize.STRING,
+  password_digest: Sequelize.STRING,
   image_url: Sequelize.STRING,
   description: Sequelize.STRING,
   interests: Sequelize.STRING,

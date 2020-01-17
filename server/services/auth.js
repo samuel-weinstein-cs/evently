@@ -30,4 +30,9 @@ const restrict = (req, res, next) => {
   }
 }
 
-module.exports = userRouter;
+module.exports = {
+  hashPassword,
+  checkPassword,
+  genToken,
+  restrict
+};

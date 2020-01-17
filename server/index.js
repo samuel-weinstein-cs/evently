@@ -14,6 +14,10 @@ app.use(logger('dev'));
 
 app.use('/user', userRouter)
 
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send(err.message);
+});
 
 app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`);

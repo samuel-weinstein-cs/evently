@@ -9,26 +9,28 @@ const userRouter = Router();
 /user/:id/events
 */
 
-userRouter.get('/', async (req,res) => {
+userRouter.get('/', async (req,res,next) => {
   try{
     const users = await User.findAll();
     res.json({users});
   } catch(e) {
     console.error(e);
+    next(e)
   }
 })
 
-userRouter.get('/:id', async (req,res) => {
+userRouter.get('/:id', async (req,res,next) => {
   try{
     const id = req.params.id;
     const user = await User.findByPk(id);
-    res.json({quote});
+    res.json({user});
   } catch(e) {
     console.error(e);
+    next(e);
   }
 })
 
-userRouter.get('/:id/events', async (req, res) => {
+userRouter.get('/:id/events', async (req, res,next) => {
   try{
     const id = req.params.id;
     const events = await Event.findAll({
@@ -39,6 +41,7 @@ userRouter.get('/:id/events', async (req, res) => {
     res.json({events})
   } catch(e) {
     console.error(e);
+    next(e);
   }
 })
 

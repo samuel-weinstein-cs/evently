@@ -42,7 +42,7 @@ const seed = async () => {
     password: "1234"
   })
 
-  maleeha.addEvent(presentation)
+  maleeha.addEvent(presentation);
 
   process.exit();
 }

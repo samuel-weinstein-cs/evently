@@ -11,10 +11,13 @@ function EventPage(props) {
           {props.eventApiDataLoaded && props.events.events.map(event => (
             <div className="event">
               <p>Title: {event.title}</p>
+              <img src={event.image_url} />
               <p>Date: {event.date}</p>
               <p>Location:{event.location} </p>
-              <p>Time: {event.time}</p>
-              <img src={event.image_url} />
+              <p>What to Expect: {event.description}</p>
+              <p>Start Time: {event.startTime}</p>
+              <p>End Time: {event.endTime}</p>
+              
             </div>
           ))
           }

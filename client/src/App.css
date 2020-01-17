@@ -42,8 +42,8 @@ main{
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top:20vh;
-  margin-bottom: 20vh;
+  margin-top:10vh;
+  margin-bottom: 10vh;
 
 }
 .users-wrapper{
@@ -51,6 +51,15 @@ main{
   flex-direction: column;
 }
 .user{
+  display: flex;
+  flex-direction: row;
+}
+
+.events-wrapper{
+  display: flex;
+  flex-direction: column;
+}
+.event{
   display: flex;
   flex-direction: row;
 }

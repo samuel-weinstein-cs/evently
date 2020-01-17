@@ -1,7 +1,7 @@
 import React from 'react';
 function UserPage(props) {
   return (
-    <div className="header">
+    <div>
       <main>
         <h3>Display all Users</h3>
         <div className="users-wrapper">

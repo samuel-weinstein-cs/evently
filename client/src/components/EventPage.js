@@ -1,7 +1,7 @@
 import React from 'react';
 function EventPage(props) {
   return (
-    <div className="header">
+    <div>
       <main>
         <h3>Display all Events</h3>
         <div className="events-wrapper">

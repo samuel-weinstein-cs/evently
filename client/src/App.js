@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Header from "./components/Header"
 import Footer from "./components/Footer"
+import HomePage from "./components/HomePage"
+
 import UserPage from "./components/UserPage"
 import EventPage from "./components/EventPage"
 
@@ -65,6 +67,14 @@ class App extends Component {
       <div className="App" >
         <Header />
         <main>
+
+
+          <Route
+            exact path="/"
+            render={() => (
+              <HomePage />
+            )}
+          />
           <Route
             exact path="/user"
             render={() => (

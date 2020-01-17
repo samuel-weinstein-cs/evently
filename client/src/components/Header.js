@@ -6,9 +6,10 @@ function Header(props) {
       <Link to="/" ><h1>Evently</h1></Link>
 
       <div>
-        <p>Login | Register</p>
+        <Link to="/login"><p> Login | Register</p></Link>
+
       </div>
-    </div>
+    </div >
   )
 }
 

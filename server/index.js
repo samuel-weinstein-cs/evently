@@ -4,19 +4,14 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 const logger = require('morgan');
 
-const eventRouter = require("./routes/eventRouter.js");
-const userRouter=require('./routes/userRoutes.js');
-
-
 //require routes
-
+const userRouter=require('./routes/userRouter.js');
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(logger('dev'));
 
-app.use("/event", eventRouter)
 app.use('/user', userRouter)
 
 app.use((err, req, res, next) => {

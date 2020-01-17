@@ -32,7 +32,7 @@ eventRouter.get("/category/:category", async (req, res) => {
   }
 })
 
-eventRouter.post('/', async (req, res, next) => {
+eventRouter.post('/', restrict, async (req, res, next) => {
   try {
 
     const event = await Event.create(req.body);
@@ -42,7 +42,7 @@ eventRouter.post('/', async (req, res, next) => {
   }
 })
 
-eventRouter.route("/:id")
+eventRouter.route("/:id",restrict)
   .put(async (req, res, next) => {
     try {
       const event = await Event.findByPk(req.params.id);

@@ -6,13 +6,15 @@ const logger = require('morgan');
 
 //require routes
 const userRouter=require('./routes/userRouter.js');
+const eventRouter=require('./routes/eventRouter.js');
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(logger('dev'));
 
-app.use('/user', userRouter)
+app.use('/user', userRouter);
+app.use('/event', eventRouter);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);

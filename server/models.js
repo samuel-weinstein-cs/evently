@@ -33,7 +33,8 @@ Event.init({
   date: Sequelize.STRING,
   description: Sequelize.STRING,
   location: Sequelize.STRING,
-  time: Sequelize.STRING,
+  startTime: Sequelize.STRING,
+  endTime: Sequelize.STRING,
   image_url: Sequelize.STRING,
   category: Sequelize.STRING
 

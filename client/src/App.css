@@ -13,9 +13,7 @@
   top: 0;
   left:0;
   width: 100vw;
-  
 }
-
 body{
   background-color: #1D1D2C;
   font-family: 'Lato', sans-serif;
@@ -26,7 +24,7 @@ body{
 .footer{
   background-color: #F5644A;
   color:white ;
-  position: fixed;
+  /* position: fixed; */
   text-align: center;
   font-family: 'Molle', cursive;
   font-size: 1.25rem;
@@ -53,6 +51,8 @@ main{
 .user{
   display: flex;
   flex-direction: row;
+  border: 1px solid white;
+  padding: 1vh 1vw;
 }
 
 .events-wrapper{
@@ -61,5 +61,22 @@ main{
 }
 .event{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  border: 1px solid white;
+  padding: 1vh 1vw;
+}
+
+a{
+  text-decoration: none;
+  color:white;
+}
+
+.user >img{
+  width: 5vw;
+  height: 70%;
+  margin: 1vh 1vw;
+}
+
+.event >img{
+  width: 50vw;
 }

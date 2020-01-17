@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import HomePage from "./components/HomePage"
-
+import { getUsers } from "./services/api_helper"
 import UserPage from "./components/UserPage"
 import EventPage from "./components/EventPage"
 
@@ -16,25 +16,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      users: [
-        {
-          username: "Maleeha",
-          description: "the awesomest person ever",
-          password: "1234"
-        },
-        {
-          username: "Richard",
-          description: "the weirdo 1",
-
-          password: "1234"
-        },
-        {
-          username: "Sam",
-          description: "weirdo 2",
-
-          password: "1234"
-        }
-      ],
+      users: [],
+      userApiDataLoaded: false,
       events: [
         {
           title: "Presentation for p3",
@@ -58,17 +41,22 @@ class App extends Component {
           time: "11am",
           image_url: "https://si.wsj.net/public/resources/images/MK-CG029_MBASTA_P_20130904152503.jpg"
         }
-
       ]
     }
+  }
+  async componentDidMount() {
+    const userData = await getUsers();
+    this.setState({
+      users: userData.data,
+      userApiDataLoaded: true
+    })
+    console.log(this.state.users)
   }
   render() {
     return (
       <div className="App" >
         <Header />
         <main>
-
-
           <Route
             exact path="/"
             render={() => (
@@ -80,6 +68,7 @@ class App extends Component {
             render={() => (
               <UserPage
                 users={this.state.users}
+                userApiDataLoaded={this.state.userApiDataLoaded}
               />
             )}
           />

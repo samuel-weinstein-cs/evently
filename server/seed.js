@@ -5,41 +5,45 @@ const seed = async () => {
   await User.destroy({ where: {} })
 
   const presentation = await Event.create({
-  title: "Presentation for p3",
-  date: "January, 23, 2020",
-  location: "GA, NY Campus",
-  time: "11am",
-  image_url: "https://si.wsj.net/public/resources/images/MK-CG029_MBASTA_P_20130904152503.jpg"
+    title: "Presentation for p3",
+    date: "January, 23, 2020",
+    location: "GA, NY Campus",
+    time: "11am",
+    image_url: "https://si.wsj.net/public/resources/images/MK-CG029_MBASTA_P_20130904152503.jpg"
 
-    })
+  })
   await Event.create({
     title: "Presentation for p3",
-  date: "January, 23, 2020",
-  location: "GA, NY Campus",
-  time: "11am",
-  image_url: "https://si.wsj.net/public/resources/images/MK-CG029_MBASTA_P_20130904152503.jpg"
-    })
+    date: "January, 23, 2020",
+    location: "GA, NY Campus",
+    time: "11am",
+    image_url: "https://si.wsj.net/public/resources/images/MK-CG029_MBASTA_P_20130904152503.jpg"
+  })
   await Event.create({
     title: "Presentation for p3",
-  date: "January, 23, 2020",
-  location: "GA, NY Campus",
-  time: "11am",
-  image_url: "https://si.wsj.net/public/resources/images/MK-CG029_MBASTA_P_20130904152503.jpg"
+    date: "January, 23, 2020",
+    location: "GA, NY Campus",
+    time: "11am",
+    image_url: "https://si.wsj.net/public/resources/images/MK-CG029_MBASTA_P_20130904152503.jpg"
   })
 
   const maleeha = await User.create({
     username: "Maleeha",
-    password: "1234"
+    password: "1234",
+    image_url: "https://i.imgur.com/j9j8hII.jpg"
   })
 
   const richard = await User.create({
     username: "Richard",
-    password: "1234"
+    password: "1234",
+    image_url: "https://s3.amazonaws.com/nooklyn-pro/agents/26284/xlarge/newheadshot.jpeg"
   })
 
   const sam = await User.create({
     username: "Sam",
-    password: "1234"
+    password: "1234",
+    image_url: "https://i.imgur.com/aLCxuY0.jpg"
+
   })
 
   maleeha.addEvent(presentation);

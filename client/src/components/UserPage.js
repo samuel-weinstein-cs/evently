@@ -5,17 +5,22 @@ function UserPage(props) {
       <main>
         <h3>Display all Users</h3>
         <div className="users-wrapper">
-
-          {props.users.map(user => (
+          {props.userApiDataLoaded && props.users.users.map(user => (
             <div className="user">
-              <p>{user.username}</p>
-              <p>{user.description}</p>
+              <img src={user.image_url} />
+              <div>
+                <h1>Name: {user.username}</h1>
+                <p>Bio: {user.description}</p>
+                <p> Interest: {user.interests}</p>
+                <p> Joining Date: {user.join_date}</p>
+              </div>
+
             </div>
           ))
           }
         </div>
       </main>
-    </div>
+    </div >
   )
 }
 

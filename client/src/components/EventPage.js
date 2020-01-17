@@ -5,11 +5,14 @@ function EventPage(props) {
       <main>
         <h3>Display all Events</h3>
         <div className="events-wrapper">
-
           {props.events.map(event => (
             <div className="event">
-              <p>{event.title}</p>
-              <p>{event.date}</p>
+              <p>Title: {event.title}</p>
+              <p>Date: {event.date}</p>
+              <p>Location:{event.location} </p>
+              <p>Time: {event.time}</p>
+              <img src={event.image_url} />
+
             </div>
           ))
           }

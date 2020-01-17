@@ -3,7 +3,7 @@ const { Sequelize } = require("sequelize");
 
 const sequelize = new Sequelize({
   database: "evently_db",
-  dialect: "posgres",
+  dialect: "postgres",
   define: {
     underscored: true
   }
@@ -34,6 +34,7 @@ Event.init({
   location: Sequelize.STRING,
   time: Sequelize.STRING,
   image_url: Sequelize.STRING,
+  category: Sequelize.STRING
   
 
 }, {

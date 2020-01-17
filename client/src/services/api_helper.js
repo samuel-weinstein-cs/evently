@@ -4,8 +4,12 @@ const api = axios.create({
 })
 
 
-export const getUsers = async (loginData) => {
-  const resp = await api.get('/user', loginData);
+export const getUsers = async () => {
+  const resp = await api.get('/user');
+  return resp;
+}
+export const getEvents = async () => {
+  const resp = await api.get('/event');
   return resp;
 
 }

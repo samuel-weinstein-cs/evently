@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import HomePage from "./components/HomePage"
-import { getUsers } from "./services/api_helper"
+import { getUsers, getEvents } from "./services/api_helper"
 import UserPage from "./components/UserPage"
 import EventPage from "./components/EventPage"
+import CreateEvent from './components/CreateEvent'
 
 
 import { Route, Link } from "react-router-dom"
@@ -18,37 +19,19 @@ class App extends Component {
     this.state = {
       users: [],
       userApiDataLoaded: false,
-      events: [
-        {
-          title: "Presentation for p3",
-          date: "January, 23, 2020",
-          location: "GA, NY Campus",
-          time: "11am",
-          image_url: "https://si.wsj.net/public/resources/images/MK-CG029_MBASTA_P_20130904152503.jpg"
-
-        },
-        {
-          title: "Presentation for p3",
-          date: "January, 23, 2020",
-          location: "GA, NY Campus",
-          time: "11am",
-          image_url: "https://si.wsj.net/public/resources/images/MK-CG029_MBASTA_P_20130904152503.jpg"
-        },
-        {
-          title: "Presentation for p3",
-          date: "January, 23, 2020",
-          location: "GA, NY Campus",
-          time: "11am",
-          image_url: "https://si.wsj.net/public/resources/images/MK-CG029_MBASTA_P_20130904152503.jpg"
-        }
-      ]
+      eventApiDataLoaded: false,
+      events: []
     }
   }
   async componentDidMount() {
     const userData = await getUsers();
+    const eventData = await getEvents();
     this.setState({
       users: userData.data,
-      userApiDataLoaded: true
+      userApiDataLoaded: true,
+      events: eventData.data,
+      eventApiDataLoaded: true
+
     })
     console.log(this.state.users)
   }
@@ -78,7 +61,14 @@ class App extends Component {
             render={() => (
               <EventPage
                 events={this.state.events}
+                eventApiDataLoaded={this.state.eventApiDataLoaded}
               />
+            )}
+          />
+          <Route
+            exact path="/createEvent"
+            render={() => (
+              <CreateEvent />
             )}
           />
           <Link to="/event"><p>View Events</p></Link>

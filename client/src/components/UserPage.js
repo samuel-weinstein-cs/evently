@@ -9,7 +9,7 @@ function UserPage(props) {
             <div className="user">
               <img src={user.image_url} />
               <div>
-                <h1>Name: {user.username}</h1>
+                <h2>Name: {user.username}</h2>
                 <p>Bio: {user.description}</p>
                 <p> Interest: {user.interests}</p>
                 <p> Joining Date: {user.join_date}</p>

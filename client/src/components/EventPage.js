@@ -5,7 +5,6 @@ function EventPage(props) {
   return (
     <div>
       <main>
-
         <h3>Display all Events</h3>
         <div className="events-wrapper">
           {props.eventApiDataLoaded && props.events.events.map(event => (

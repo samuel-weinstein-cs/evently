@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
+import SingleEvent from "./singleEvent"
 
-function EventPage(props) {
+function EventPage(props)  {
   return (
     <div>
       <main>
@@ -16,6 +17,8 @@ function EventPage(props) {
               <p>What to Expect: {event.description}</p>
               <p>Start Time: {event.startTime}</p>
               <p>End Time: {event.endTime}</p>
+              
+              <Link to={`/event/${event.id}`} id={event.id}  >Click for details</Link>
               
             </div>
           ))

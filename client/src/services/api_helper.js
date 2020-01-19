@@ -13,3 +13,8 @@ export const getEvents = async () => {
   return resp;
 
 }
+
+export const getUserProfile = async (id) => {
+  const resp = await api.get(`/user/${id}`)
+  return resp
+}

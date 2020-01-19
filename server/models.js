@@ -30,12 +30,14 @@ class Event extends Sequelize.Model { }
 
 Event.init({
   title: Sequelize.STRING,
+  tagline: Sequelize.STRING,
   date: Sequelize.STRING,
-  description: Sequelize.STRING,
+  entry: Sequelize.STRING,
+  description: Sequelize.TEXT,
   location: Sequelize.STRING,
   startTime: Sequelize.STRING,
   endTime: Sequelize.STRING,
-  image_url: Sequelize.STRING,
+  image_url: Sequelize.TEXT,
   category: Sequelize.STRING
 
 

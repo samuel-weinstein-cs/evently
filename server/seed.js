@@ -32,30 +32,30 @@ const seed = async () => {
   })
 
   const maleeha = await User.create({
-    username: "Maleeha",
-    password: "1234",
-    description: "abcd",
-    interests: "m, n, o, p",
-    join_date: "Jan 17, 2020",
-    image_url: "https://i.imgur.com/j9j8hII.jpg"
+    "username": "Maleeha",
+    "password_digest": "$2b$11$jKeBUnZYoPIgRki.U5B5o.UMR6TtECB3e0HQvkwWVrse5JJBroC2C",
+    "image_url": "https://i.imgur.com/j9j8hII.jpg",
+    "description": "abcd",
+    "interests": "m, n, o, p",
+    "join_date": "Jan 17, 2020"
   })
 
   const richard = await User.create({
-    username: "Richard",
-    password: "1234",
-    description: "efgh",
-    interests: "q, r, s, t",
-    join_date: "Jan 17, 2020",
-    image_url: "https://s3.amazonaws.com/nooklyn-pro/agents/26284/xlarge/newheadshot.jpeg"
+    "username": "Richard",
+    "password_digest": "$2b$11$7zoiX9RizkmXwF0bZkPAYebA.yvzBJsRml.yI0XB8cNMrF/vvk99m",
+    "image_url": "https://s3.amazonaws.com/nooklyn-pro/agents/26284/xlarge/newheadshot.jpeg",
+    "description": "efgh",
+    "interests": "q, r, s, t",
+    "join_date": "Jan 17, 2020"
   })
 
   const sam = await User.create({
-    username: "Sam",
-    password: "1234",
-    description: "ijkl",
-    interests: "u, v, w, x",
-    join_date: "Jan 17, 2020",
-    image_url: "https://i.imgur.com/aLCxuY0.jpg"
+    "username": "Sam",
+    "password_digest": "$2b$11$eEumHGhZY3SYT9UHdKFX2eFT8XzdEKUu0tRdJcUaP2gHF4Ppr65va",
+    "image_url": "https://i.imgur.com/aLCxuY0.jpg",
+    "description": "ijkl",
+    "interests": "u, v, w, x",
+    "join_date": "Jan 17, 2020"
   })
 
   maleeha.addEvent(presentation);

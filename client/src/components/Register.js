@@ -25,7 +25,7 @@ class Register extends Component {
       <div>
         <p>Welcome to <span>Evently!</span></p>
         <p>New user registration </p>
-        <form className="registrationForm">
+        <form className="registrationForm" onSubmit={(e)=>this.props.handleRegister(e,this.state)}>
 
           <label htmlFor="username">Enter Username</label>
           <input type="text" placeholder="Enter Username" name="username" onChange={this.onChange} />
@@ -44,22 +44,12 @@ class Register extends Component {
 
           <label htmlFor="interests">Interests</label>
           <input type="text" placeholder="Enter Interests" name="interests" onChange={this.onChange} />
-
-          <Link to="/"><input
+          <input
             type="submit"
             className="button"
             value="Register"
-            onClick={(e) => this.props.handleRegister(e,
-              {
-                username: this.state.username,
-                password_digest: this.state.password_digest,
-                image_url: this.state.image_url,
-                description: this.state.description,
-                interests: this.state.interests
-              })
-            }
-          ></input>
-          </Link>
+          />
+
         </form>
       </div >
     )

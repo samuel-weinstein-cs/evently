@@ -41,7 +41,6 @@ class App extends Component {
     e.preventDefault();
     console.log(registerData)
     if (!registerData.username || !registerData.password) {
-      console.log('he')
       this.setState({
         errorText: "You must supply a username AND a password you jerk! "
       })
@@ -54,7 +53,7 @@ class App extends Component {
       })
     }
   }
-  //verify 
+  //verify
   handleVerify = async () => {
     const currentUser = await verifyUser();
     if (currentUser) {
@@ -91,13 +90,14 @@ class App extends Component {
   render() {
     return (
       <div className="App" >
-        <Header />
+        <Header user={this.state.currentUser} handleLogout={this.handleLogout}/>
         <main>
           <Route
             exact path="/"
             render={() => (
               <HomePage
-                currentUser={this.state.currentUser} />
+                currentUser={this.state.currentUser}
+              />
             )}
           />
           <Route

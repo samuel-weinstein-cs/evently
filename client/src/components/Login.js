@@ -22,7 +22,7 @@ class Login extends Component {
       <div>
         <p>Welcome to <span>Evently!</span></p>
         <p>Enter username and password to continue. </p>
-        <form onClick={(e) =>
+        <form onSubmit={(e) =>
           this.props.handleLogin(e,
             {
 
@@ -49,8 +49,8 @@ class Login extends Component {
           {/* <Link to="/"> */}
           <input
             type="submit"
-          // className="button"
-          // value="Log in"
+            className="button"
+            value="Log in"
           />
 
           {/* </Link> */}

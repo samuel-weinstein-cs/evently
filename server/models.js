@@ -21,8 +21,8 @@ User.init({
 
 
 }, {
-    sequelize,
-  modelName: "user"
+  sequelize,
+  modelName: 'user'
 
 })
 
@@ -40,11 +40,11 @@ Event.init({
 
 
 }, {
-    sequelize,
-    modelName: "event"
+  sequelize,
+  modelName: 'event'
 })
 
-User.hasMany(Event ,{ onDelete: 'cascade' });
+User.hasMany(Event, { onDelete: 'cascade' });
 Event.belongsTo(User);
 
 

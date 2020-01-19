@@ -5,28 +5,28 @@ const seed = async () => {
   await User.destroy({ where: {} })
 
   const presentation = await Event.create({
-  title: "Presentation for p3",
-  date: "January, 23, 2020",
-  location: "GA, NY Campus",
-  time: "11am",
-  image_url: "https://si.wsj.net/public/resources/images/MK-CG029_MBASTA_P_20130904152503.jpg",
-  category: "Not School"
-    })
-  await Event.create({
     title: "Presentation for p3",
-  date: "January, 23, 2020",
-  location: "GA, NY Campus",
-  time: "11am",
+    date: "January, 23, 2020",
+    location: "GA, NY Campus",
+    time: "11am",
     image_url: "https://si.wsj.net/public/resources/images/MK-CG029_MBASTA_P_20130904152503.jpg",
-  category: "School"
-    })
+    category: "Not School"
+  })
   await Event.create({
     title: "Presentation for p3",
-  date: "January, 23, 2020",
-  location: "GA, NY Campus",
-  time: "11am",
-  image_url: "https://si.wsj.net/public/resources/images/MK-CG029_MBASTA_P_20130904152503.jpg",
-  category: "School"
+    date: "January, 23, 2020",
+    location: "GA, NY Campus",
+    time: "11am",
+    image_url: "https://si.wsj.net/public/resources/images/MK-CG029_MBASTA_P_20130904152503.jpg",
+    category: "School"
+  })
+  await Event.create({
+    title: "Presentation for p3",
+    date: "January, 23, 2020",
+    location: "GA, NY Campus",
+    time: "11am",
+    image_url: "https://si.wsj.net/public/resources/images/MK-CG029_MBASTA_P_20130904152503.jpg",
+    category: "School"
 
 
   })

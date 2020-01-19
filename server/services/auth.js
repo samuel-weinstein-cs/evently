@@ -2,21 +2,24 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const SALT_ROUNDS = 11;
-const TOKEN_KEY = 'bad hair day';
+const TOKEN_KEY = 'mosquito fossil';
 
-const hashPassword = async (password) =>{
+const hashPassword = async (password) => {
   const digest = await bcrypt.hash(password, SALT_ROUNDS);
   return digest;
 }
 
 const checkPassword = async (password, password_digest) => {
+  console.log(typeof (password), typeof (password_digest))
+  console.log(password.length, password_digest.length)
+  console.log(await bcrypt.compare(password, password_digest))
   return await bcrypt.compare(password, password_digest);
 }
 
-const genToken = (data)=>{
+const genToken = (data) => {
   const token = jwt.sign(data, TOKEN_KEY);
   return token;
-}
+};
 
 const restrict = (req, res, next) => {
   try {
@@ -24,7 +27,7 @@ const restrict = (req, res, next) => {
     const data = jwt.verify(token, TOKEN_KEY);
     res.locals.user = data;
     console.log(data);
-    next()
+    next();
   } catch(e){
     console.error(e);
     res.status(403).send('Unauthorized');
@@ -36,4 +39,4 @@ module.exports = {
   checkPassword,
   genToken,
   restrict
-};
+}

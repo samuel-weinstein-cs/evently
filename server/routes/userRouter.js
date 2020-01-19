@@ -92,27 +92,39 @@ userRouter.post('/login', async (req, res, next) => {
         username: req.body.username
       }
     })
-    if(await checkPassword(req.body.password, user.password_digest)) {
+    if(user && await checkPassword(req.body.password, user.password_digest)) {
       const respData = buildAuthResponse(user);
       res.json(respData);
     } else {
       res.status(401).send('Invalid Credentials');
     }
   } catch (e){
+    console.error(e);
     next(e);
   }
 })
 
 userRouter.put('/:id', restrict, async (req, res, next) => {
   try{
+    const userId = res.locals.user.id;
     const id = req.params.id
-    const data = req.body;
-    const user = await User.findByPk(id);
-    await user.update(data);
-    res.json({user});
+    if(id===userId){
+      const data = req.body;
+      const user = await User.findByPk(id);
+      await user.update(data);
+      res.json({user});
+    } else {
+      res.status(403).send('Unauthorized');
+    }
   } catch(e) {
     console.error(e);
     next(e);
   }
 })
+
+userRouter.get('/verify', restrict, (req, res) => {
+  const user = res.locals.user;
+  res.json(user);
+})
+
 module.exports= userRouter;

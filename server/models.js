@@ -15,7 +15,7 @@ User.init({
   username: Sequelize.STRING,
   password_digest: Sequelize.STRING,
   image_url: Sequelize.STRING,
-  description: Sequelize.STRING,
+  description: Sequelize.TEXT,
   interests: Sequelize.STRING,
   join_date: Sequelize.STRING,
 
@@ -31,7 +31,7 @@ class Event extends Sequelize.Model { }
 Event.init({
   title: Sequelize.STRING,
   date: Sequelize.STRING,
-  description: Sequelize.STRING,
+  description: Sequelize.TEXT,
   location: Sequelize.STRING,
   startTime: Sequelize.STRING,
   endTime: Sequelize.STRING,

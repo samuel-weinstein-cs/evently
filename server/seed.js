@@ -58,7 +58,7 @@ const seed = async () => {
     "join_date": "Jan 17, 2020"
   })
 
-  maleeha.addEvent(presentation);
+  await maleeha.addEvent(presentation);
 
   process.exit();
 }

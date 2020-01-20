@@ -1,5 +1,6 @@
 const { Router } = require("express");
-const { Event, User } = require("../models")
+const { Event, User, Attending } = require("../models")
+const {Op} = require("sequelize");
 const eventRouter = Router();
 const {hashPassword, genToken, checkPassword, restrict} = require("../services/auth");
 
@@ -48,28 +49,58 @@ eventRouter.post('/', restrict, async (req, res, next) => {
   }
 })
 
-eventRouter.get("/:id/attending", async (req, res, next) => {
-  try {
-    const id = req.params.id;
-    const attending = await Attending.findAll({
-      where:{
-        eventId: id
-      }
-    })
-    const userId= attending.map(pair => {
-      return pair.userId;
-    })
-    const users = await User.findAll({
-      where:{
-        id:userId
-      }
-    })
-    res.json({users});
-  } catch(e) {
-    console.error(e);
-    next(e);
-  }
-})
+eventRouter.route("/:id/attending")
+  .get( async (req, res, next) => {
+    try {
+      const id = req.params.id;
+      const attending = await Attending.findAll({
+        where:{
+          eventId: id
+        }
+      })
+      const userId= attending.map(pair => {
+        return pair.userId;
+      })
+      const users = await User.findAll({
+        where:{
+          id:userId
+        }
+      })
+      res.json({users});
+    } catch(e) {
+      console.error(e);
+      next(e);
+    }
+  })
+  .post(restrict, async (req, res, next) => {
+    try {
+      const id = req.params.id;
+      const userId = res.locals.user.id;
+      const event = await Event.findByPk(id);
+      const user = await User.findByPk(userId);
+      await event.addUser(user);
+      res.status(201).send('Created');
+    } catch(e) {
+      console.error(e);
+      next(e);
+    }
+  })
+  .delete(restrict, async(req, res, next) => {
+    try{
+      const id = req.params.id;
+      const userId = res.locals.user.id;
+      const attendingPair = await Attending.findOne({
+        where:{
+          [Op.and]: [{eventId:id}, {userId}]
+        }
+      })
+      attendingPair.destroy();
+      res.json({attendingPair});
+    } catch(e) {
+      console.error(e);
+      next(e);
+    }
+  })
 
 eventRouter.route("/:id")
   .put(restrict, async (req, res, next) => {
@@ -85,7 +116,7 @@ eventRouter.route("/:id")
       }
     } catch (e) {
       console.error(e);
-      next(e)
+      next(e);
     }
   })
   .delete(restrict, async (req, res, next) => {

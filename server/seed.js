@@ -64,8 +64,8 @@ const seed = async () => {
   await maleeha.addEvent(event3);
 
 
-await event1.addUser(maleeha);
-await event2.addUser(maleeha);
+  await event1.addUser(maleeha);
+  await event2.addUser(maleeha);
   await event3.addUser(maleeha);
 
   await event1.addUser(sam);

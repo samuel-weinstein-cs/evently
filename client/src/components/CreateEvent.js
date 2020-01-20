@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from "axios"
+import { createEvent } from "../services/api_helper.js"
 
 class CreateEvent extends Component {
   constructor(props) {
@@ -32,14 +33,12 @@ class CreateEvent extends Component {
     })
   }
 
-  submitEvent = async (e) => {
+  submitEvent = async (e, newEvent) => {
     e.preventDefault();
-    try {
-      const newEvent = axios.post('http://localhost:3000/event', this.state.event)
-    }
-    catch (e) {
-      console.log("Something went wrong. Please test connection and try again!")
-    }
+    const event = createEvent(newEvent)
+
+
+
   }
 
 
@@ -47,7 +46,7 @@ class CreateEvent extends Component {
     console.log(this.state.event)
     return (
       <div>
-        <form onSubmit={this.submitEvent}>
+        <form onSubmit={(e) => this.submitEvent(e, this.state.event)}>
           <input
             type="text"
             name="title"
@@ -69,7 +68,7 @@ class CreateEvent extends Component {
             placeholder="Any entry fees?"
             onChange={this.handleChange}
           />
-          
+
           <input
 
             type="text"

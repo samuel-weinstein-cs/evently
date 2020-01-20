@@ -1,13 +1,28 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from 'react';
+import { getByCategory } from '../services/api_helper';
 
-function EventPage(props) {
-  return (
-    <div>
-      <main>
-        <h3>Display all Events</h3>
+
+class EventByCategory extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      events: [],
+      apiDataLoaded: false
+    }
+  }
+  async componentDidMount() {
+    const resp = await getByCategory(`Gaming`);
+    this.setState({
+      events: resp.data,
+      apiDataLoaded: true
+    })
+  }
+  render() {
+    return (
+      <div>
         <div className="events-wrapper">
-          {props.eventApiDataLoaded && props.events.events.map(event => (
+          {this.state.apiDataLoaded && this.state.events.map(event => (
             <div className="event">
               <p>Title: {event.title}</p>
               <img src={event.image_url} alt='event' />
@@ -21,9 +36,8 @@ function EventPage(props) {
           ))
           }
         </div>
-      </main>
-    </div>
-  )
+      </div>
+    )
+  }
 }
-
-export default EventPage;
+export default EventByCategory;

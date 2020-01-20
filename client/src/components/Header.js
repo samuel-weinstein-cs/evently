@@ -7,8 +7,8 @@ function Header(props) {
 
       <div>
         <Link to="/login">
-          {props.user?
-            <p onClick={props.handleLogout}>Hello, {props.user.username}</p>:
+          {props.user ?
+            <div><p>Hello, {props.user.username} <button onClick={props.handleLogout}>Logout</button></p></div> :
             <p> Login | Register</p>
           }
         </Link>

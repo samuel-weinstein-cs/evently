@@ -9,11 +9,13 @@ import CreateEvent from './components/CreateEvent'
 import Register from './components/Register'
 import SingleEvent from "./components/singleEvent"
 import UserProfile from "./components/userProfile"
+import EventByCategory from "./components/EventByCategory"
+
 import { loginUser, registerUser, verifyUser } from './services/api_helper';
 
 
 import { getUsers, getEvents } from "./services/api_helper"
-import { Route } from "react-router-dom"
+import { Route, withRouter } from 'react-router-dom'
 
 import './App.css';
 
@@ -34,7 +36,6 @@ class App extends Component {
 
   handleLogin = async (e, loginData) => {
     e.preventDefault();
-    console.log("help me");
     const currentUser = await loginUser(loginData);
     this.setState({ currentUser });
 
@@ -152,19 +153,26 @@ class App extends Component {
               />
             )}
           />
-          <Route 
+          <Route
             exact path={`/event/:eventId`}
             render={(props) =>
               <SingleEvent  {...props} component={EventPage} />} />
-            
-          <Route 
-            exact path={`/user/:userId`} render={(props) => <UserProfile  {...props} component={UserPage}/>} />
+          <Route
+            exact path={`/events/:category`}
+            render={(props) =>
+              <EventByCategory
+
+              />
+            }
+          />
+          <Route
+            exact path={`/user/:userId`} render={(props) => <UserProfile  {...props} component={UserPage} />} />
         </main>
-        
+
         <Footer />
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

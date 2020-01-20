@@ -10,14 +10,6 @@ class SingleEvent extends Component {
 
     }
   }
-  
-
-  
-
-    
-  
-
-  
 
  async componentDidMount  () {
     let event = await axios(`http://localhost:3000/event/${this.props.match.params.eventId}`);

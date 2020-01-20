@@ -10,13 +10,20 @@ export const getUsers = async () => {
 export const getEvents = async () => {
   const resp = await api.get('/event');
   return resp;
+}
 
+export const getByCategory = async (category) => {
+  const resp = await api.get(`/event/category/${category}`);
+  console.log(resp)
+  return resp;
 }
 
 export const getUserProfile = async (id) => {
   const resp = await api.get(`/user/${id}`)
   return resp
 }
+
+
 export const loginUser = async (loginData) => {
   console.log(loginData)
   const resp = await api.post('/user/login', loginData);
@@ -42,3 +49,6 @@ export const verifyUser = async () => {
     return resp.data;
   }
 }
+
+
+

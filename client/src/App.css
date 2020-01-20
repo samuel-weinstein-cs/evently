@@ -59,15 +59,21 @@ main{
   border: 1px solid white;
   padding: 1vh 1vw;
 }
+.login{
+  height: 70vh;
+}
 
 .events-wrapper{
   display: flex;
   flex-direction: column;
 }
 .event{
+  width: 20vw;
   display: flex;
   flex-direction: column;
-  border: 1px solid white;
+  border: 1px solid #1D1D2C;
+  background-color: rgba(255, 255, 255,0.9);
+  color: #1D1D2C;
   padding: 1vh 1vw;
 }
 
@@ -75,7 +81,9 @@ a{
   text-decoration: none;
   color:white;
 }
-
+.createButton{
+  text-align:right
+}
 .user >img{
   width: 5vw;
   height: 70%;
@@ -96,11 +104,14 @@ button{
   flex-direction: column;
   justify-content: center;
 }
+
+
 .registrationForm
 {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
 }
 input{
   margin: 1vh 1vw;
@@ -133,9 +144,11 @@ span{
 .categoriesContainer a{
   font-size: 1em;
   width: 20vw; 
-  border: 0.01em solid white;
+  border: 0.01em solid #1D1D2C;
  margin: 0.1vh 0.1vw;
   padding:1vh 1vw;
+  background-color: rgb(245, 167, 33);
+  color: #1D1D2C;
 }
 
 .events-by-category{

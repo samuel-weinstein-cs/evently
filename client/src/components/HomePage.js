@@ -92,11 +92,13 @@ function HomePage(props) {
         <div className="events-by-category">
           {props.eventApiDataLoaded && props.events.events.map(event => (
             <div className="event">
+              <Link to={`/event/${event.id}`} id={event.id}  >
               <p>Title: {event.title}</p>
               <img src={event.image_url} alt='event' />
               <p>Date: {event.date}</p>
               <p>Location:{event.location} </p>
-              <p>Start Time: {event.startTime}</p>
+                <p>Start Time: {event.startTime}</p>
+                </Link>
             </div>
           ))
           }

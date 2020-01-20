@@ -1,27 +1,28 @@
-const { Event, User } = require('./models');
+const { Event, User, Attending } = require('./models');
 
 const seed = async () => {
   await Event.destroy({ where: {} })
   await User.destroy({ where: {} })
+  await Attending.destroy({ where: {} });
 
-  const presentation = await Event.create({
-    title: "Presentation for p3",
+  const event1 = await Event.create({
+    title: "Event1",
     date: "January, 23, 2020",
     location: "GA, NY Campus",
     time: "11am",
     image_url: "https://si.wsj.net/public/resources/images/MK-CG029_MBASTA_P_20130904152503.jpg",
     category: "Not School"
   })
-  await Event.create({
-    title: "Presentation for p3",
+  const event2 = await Event.create({
+    title: "Event2",
     date: "January, 23, 2020",
     location: "GA, NY Campus",
     time: "11am",
     image_url: "https://si.wsj.net/public/resources/images/MK-CG029_MBASTA_P_20130904152503.jpg",
     category: "School"
   })
-  await Event.create({
-    title: "Presentation for p3",
+  const event3 = await Event.create({
+    title: "Event3",
     date: "January, 23, 2020",
     location: "GA, NY Campus",
     time: "11am",
@@ -58,7 +59,13 @@ const seed = async () => {
     "join_date": "Jan 17, 2020"
   })
 
-  await maleeha.addEvent(presentation);
+  await maleeha.addEvent(event1);
+  await event1.addUser(maleeha);
+  await richard.addEvent(event2);
+  await event2.addUser(richard);
+  await sam.addEvent(event3);
+  await event3.addUser(sam);
+
 
   process.exit();
 }

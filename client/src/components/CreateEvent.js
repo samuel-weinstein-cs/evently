@@ -71,6 +71,7 @@ class CreateEvent extends Component {
           />
           
           <input
+
             type="text"
             name="description"
             value={this.state.description}

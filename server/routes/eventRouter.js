@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { Event } = require("../models")
+const { Event, User } = require("../models")
 const eventRouter = Router();
 const {hashPassword, genToken, checkPassword, restrict} = require("../services/auth");
 
@@ -35,28 +35,43 @@ eventRouter.get("/category/:category", async (req, res) => {
 
 eventRouter.post('/', restrict, async (req, res, next) => {
   try {
-
+    const userId = res.locals.user.id;
+    const user = await User.findByPk(userId);
     const event = await Event.create(req.body);
+    await user.addEvent(event);
     res.json(event);
   } catch (e) {
     next(e)
   }
 })
 
-eventRouter.route("/:id",restrict)
-  .put(async (req, res, next) => {
+eventRouter.route("/:id")
+  .put(restrict, async (req, res, next) => {
     try {
       const event = await Event.findByPk(req.params.id);
-      await event.update(req.body)
-      res.json(event)
+      const userId = res.locals.user.id;
+      const id = event.userId;
+      if(id===userId){
+        await event.update(req.body)
+        res.json(event)
+      } else {
+        res.status(403).send('Unauthorized');
+      }
     } catch (e) {
       next(e)
     }
   })
-  .delete(async (req, res, next) => {
+  .delete(restrict, async (req, res, next) => {
     try {
-      const event = await Event.destroy({ where: { id: req.params.id } })
-      res.json(event)
+      const event = await Event.findByPk(req.params.id);
+      const userId = res.locals.user.id;
+      const id = event.userId;
+      if(id===userId){
+        event.destroy();
+        res.json(event);
+      } else {
+        res.status(403).send('Unauthorized');
+      }
     } catch (e) {
       next(e)
     }

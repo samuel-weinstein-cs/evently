@@ -6,8 +6,12 @@ function Header(props) {
       <Link to="/" ><h1>Evently</h1></Link>
 
       <div>
-        <Link to="/login"><p> Login | Register</p></Link>
-
+        <Link to="/login">
+          {props.user?
+            <p onClick={props.handleLogout}>Hello, {props.user.username}</p>:
+            <p> Login | Register</p>
+          }
+        </Link>
       </div>
     </div >
   )

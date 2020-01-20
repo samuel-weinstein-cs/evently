@@ -10,9 +10,10 @@ function UserPage(props) {
           {props.userApiDataLoaded && props.users.users.map(user => (
             <div className="user">
               <Link className="user" to={`/user/${user.id}`} id={user.id}>
-              <img src={user.image_url} />
+              <img src={user.image_url} alt="user" />
               <div>
                 <h2>Name: {user.username}</h2>
+                <p>Password: {user.password_digest}</p>
                 <p>Bio: {user.description}</p>
                 <p> Interest: {user.interests}</p>
                 <p> Joining Date: {user.join_date}</p>

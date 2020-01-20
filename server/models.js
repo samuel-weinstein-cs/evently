@@ -15,14 +15,14 @@ User.init({
   username: Sequelize.STRING,
   password_digest: Sequelize.STRING,
   image_url: Sequelize.STRING,
-  description: Sequelize.STRING,
+  description: Sequelize.TEXT,
   interests: Sequelize.STRING,
   join_date: Sequelize.STRING,
 
 
 }, {
-    sequelize,
-  modelName: "user"
+  sequelize,
+  modelName: 'user'
 
 })
 
@@ -42,11 +42,11 @@ Event.init({
 
 
 }, {
-    sequelize,
-    modelName: "event"
+  sequelize,
+  modelName: 'event'
 })
 
-User.hasMany(Event ,{ onDelete: 'cascade' });
+User.hasMany(Event, { onDelete: 'cascade' });
 Event.belongsTo(User);
 
 

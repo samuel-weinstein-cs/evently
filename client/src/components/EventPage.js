@@ -11,7 +11,7 @@ function EventPage(props)  {
           {props.eventApiDataLoaded && props.events.events.map(event => (
             <div className="event">
               <p>Title: {event.title}</p>
-              <img src={event.image_url} />
+              <img src={event.image_url} alt='event' />
               <p>Date: {event.date}</p>
               <p>Location:{event.location} </p>
               <p>What to Expect: {event.description}</p>

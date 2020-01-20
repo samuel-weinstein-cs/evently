@@ -93,13 +93,15 @@ class App extends Component {
   render() {
     return (
       <div className="App" >
-        <Header user={this.state.currentUser} handleLogout={this.handleLogout}/>
+        <Header user={this.state.currentUser} handleLogout={this.handleLogout} />
         <main>
           <Route
             exact path="/"
             render={() => (
               <HomePage
                 currentUser={this.state.currentUser}
+                events={this.state.events}
+                eventApiDataLoaded={this.state.eventApiDataLoaded}
               />
             )}
           />

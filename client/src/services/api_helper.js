@@ -13,6 +13,10 @@ export const getEvents = async () => {
 
 }
 
+export const getUserProfile = async (id) => {
+  const resp = await api.get(`/user/${id}`)
+  return resp
+}
 export const loginUser = async (loginData) => {
   console.log(loginData)
   const resp = await api.post('/user/login', loginData);

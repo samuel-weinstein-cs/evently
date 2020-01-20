@@ -10,6 +10,7 @@ class CreateEvent extends Component {
         title: '',
         date: '',
         location: '',
+        entry: '',
         description: '',
         startTime: '',
         endTime: '',
@@ -31,9 +32,10 @@ class CreateEvent extends Component {
     })
   }
 
-  submitEvent = async (event) => {
+  submitEvent = async (e) => {
+    e.preventDefault();
     try {
-      axios.post('http://localhost:3000/event', this.state.event)
+      const newEvent = axios.post('http://localhost:3000/event', this.state.event)
     }
     catch (e) {
       console.log("Something went wrong. Please test connection and try again!")
@@ -61,6 +63,15 @@ class CreateEvent extends Component {
             onChange={this.handleChange}
           />
           <input
+            type="text"
+            name="entry"
+            value={this.state.entry}
+            placeholder="Any entry fees?"
+            onChange={this.handleChange}
+          />
+          
+          <input
+
             type="text"
             name="description"
             value={this.state.description}

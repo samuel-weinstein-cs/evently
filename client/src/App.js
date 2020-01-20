@@ -7,7 +7,10 @@ import UserPage from "./components/UserPage"
 import EventPage from "./components/EventPage"
 import CreateEvent from './components/CreateEvent'
 import Register from './components/Register'
+import SingleEvent from "./components/singleEvent"
+import UserProfile from "./components/userProfile"
 import { loginUser, registerUser, verifyUser } from './services/api_helper';
+
 
 import { getUsers, getEvents } from "./services/api_helper"
 import { Route } from "react-router-dom"
@@ -147,7 +150,15 @@ class App extends Component {
               />
             )}
           />
+          <Route 
+            exact path={`/event/:eventId`}
+            render={(props) =>
+              <SingleEvent  {...props} component={EventPage} />} />
+            
+          <Route 
+            exact path={`/user/:userId`} render={(props) => <UserProfile  {...props} component={UserPage}/>} />
         </main>
+        
         <Footer />
       </div>
     );

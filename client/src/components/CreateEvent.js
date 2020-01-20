@@ -21,7 +21,7 @@ class CreateEvent extends Component {
 
   handleChange = (e) => {
     const { name, value } = e.target
-    
+
     this.setState({
       event:
       {
@@ -31,11 +31,11 @@ class CreateEvent extends Component {
     })
   }
 
-  submitEvent =  async(event) => {
+  submitEvent = async (event) => {
     try {
-      const newEvent = axios.post('http://localhost:3000/event',  this.state.event)
-      }
-     catch (e) {
+      axios.post('http://localhost:3000/event', this.state.event)
+    }
+    catch (e) {
       console.log("Something went wrong. Please test connection and try again!")
     }
   }
@@ -46,42 +46,42 @@ class CreateEvent extends Component {
     return (
       <div>
         <form onSubmit={this.submitEvent}>
-          <input 
+          <input
             type="text"
             name="title"
             value={this.state.title}
             placeholder="Event Name"
             onChange={this.handleChange}
           />
-          <input 
+          <input
             type="text"
             name="category"
             value={this.state.category}
             placeholder="Category of Event"
             onChange={this.handleChange}
-            />
-          <input 
+          />
+          <input
             type="text"
             name="description"
             value={this.state.description}
             placeholder="Event Details"
             onChange={this.handleChange}
           />
-           <input 
+          <input
             type="text"
             name="date"
             value={this.state.date}
             placeholder="Date of Event"
             onChange={this.handleChange}
           />
-          <input 
+          <input
             type="text"
             name="location"
             value={this.state.location}
             placeholder="Address/Location"
             onChange={this.handleChange}
-            />
-          <input 
+          />
+          <input
             type="text"
             name="startTime"
             value={this.state.startTime}
@@ -103,8 +103,8 @@ class CreateEvent extends Component {
             onChange={this.handleChange}
           />
           <input type="Submit" value="Create Your Event!" readOnly={true} />
-        
-          
+
+
 
         </form>
 

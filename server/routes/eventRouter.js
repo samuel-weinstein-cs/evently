@@ -9,7 +9,8 @@ eventRouter.get("/", async (req, res) => {
     const events = await Event.findAll()
     res.json({ events })
   } catch (e) {
-    console.error("Seems to be a connection problem m8")
+    console.error(e);
+    next(e);
   }
 })
 
@@ -18,7 +19,8 @@ eventRouter.get("/:id", async (req, res) => {
     const event = await Event.findByPk(req.params.id);
     res.json({ event })
   } catch (e) {
-    console.error("Seems to be a connection problem m8")
+    console.error(e);
+    next(e);
   }
 })
 
@@ -29,7 +31,8 @@ eventRouter.get("/category/:category", async (req, res) => {
     const catEvent = await Event.findAll({ where: { category } })
     res.json(catEvent)
   } catch (e) {
-    console.error("Seems to be a connection problem m8")
+    console.error(e);
+    next(e);
   }
 })
 
@@ -42,6 +45,29 @@ eventRouter.post('/', restrict, async (req, res, next) => {
     res.json(event);
   } catch (e) {
     next(e)
+  }
+})
+
+eventRouter.get("/:id/attending", async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const attending = await Attending.findAll({
+      where:{
+        eventId: id
+      }
+    })
+    const userId= attending.map(pair => {
+      return pair.userId;
+    })
+    const users = await User.findAll({
+      where:{
+        id:userId
+      }
+    })
+    res.json({users});
+  } catch(e) {
+    console.error(e);
+    next(e);
   }
 })
 
@@ -58,6 +84,7 @@ eventRouter.route("/:id")
         res.status(403).send('Unauthorized');
       }
     } catch (e) {
+      console.error(e);
       next(e)
     }
   })
@@ -73,6 +100,7 @@ eventRouter.route("/:id")
         res.status(403).send('Unauthorized');
       }
     } catch (e) {
+      console.error(e);
       next(e)
     }
   })

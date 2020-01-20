@@ -42,7 +42,6 @@ userRouter.get('/:id', async (req, res, next) => {
 userRouter.get('/:id/attending', async (req, res, next) => {
   try{
     const id = req.params.id;
-    const user = await User.findByPk(id);
     const attending = await Attending.findAll({
       where:{
         userId: id

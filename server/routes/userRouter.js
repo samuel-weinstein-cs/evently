@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const { User, Event } = require('../models.js');
+const { User, Event, } = require('../models.js');
 const { hashPassword, genToken, checkPassword, restrict } = require("../services/auth");
 const userRouter = Router();
 
@@ -39,28 +39,45 @@ userRouter.get('/:id', async (req, res, next) => {
   }
 })
 
-// userRouter.get('/:id/events', async (req, res, next) => {
-//   try {
-//     const id = req.params.id;
-//     const events = await Event.findAll({
-//       where: {
-//         userId: id
-//       }
-//     })
-//     res.json({ events })
-//   } catch (e) {
-//     console.error(e);
-//     next(e);
-//   }
-// })
-/*
-username: Sequelize.STRING,
-password_digest: Sequelize.STRING,
-image_url: Sequelize.STRING,
-description: Sequelize.STRING,
-interests: Sequelize.STRING,
-join_date: Sequelize.STRING,
-*/
+userRouter.get('/:id/attending', async (req, res, next) => {
+  try{
+    const id = req.params.id;
+    const user = await User.findByPk(id);
+    const attending = await Attending.findAll({
+      where:{
+        userId: id
+      }
+    })
+    const eventId = attending.map(pair => {
+      return pair.eventId;
+    })
+    const events = await Event.findAll({
+      where:{
+        id:eventId
+      }
+    })
+    res.json({events})
+  } catch(e) {
+    console.error(e);
+    next(e);
+  }
+})
+
+userRouter.get('/:id/events', async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const events = await Event.findAll({
+      where: {
+        userId: id
+      }
+    })
+    res.json({ events })
+  } catch (e) {
+    console.error(e);
+    next(e);
+  }
+})
+
 userRouter.post('/register', async (req, res, next) => {
   try {
     const { username, image_url, description, interests, join_date } = req.body;
@@ -86,27 +103,6 @@ userRouter.post('/register', async (req, res, next) => {
   }
 })
 
-// userRouter.post('/login', async (req, res) => {
-//   try {
-
-//     const user = await User.findOne({
-//       where: {
-//         username: req.body.username
-//       },
-//     });
-//     if (await checkPassword(req.body.password, user.password_digest)) {
-//       const respData = buildAuthResponse(user);
-//       res.json(respData);
-//     } else {
-//       console.log('here')
-//       res.status(401).send('Invalid Credentials');
-//     }
-//   } catch (e) {
-//     console.error(e)
-//     res.status(401).send('Invalid Credentials');
-
-//   }
-// });
 
 
 userRouter.post('/login', async (req, res) => {
@@ -129,7 +125,7 @@ userRouter.post('/login', async (req, res) => {
 });
 
 
-userRouter.get('/user/verify', restrict, (req, res) => {
+userRouter.get('/verify', restrict, (req, res) => {
   const user = res.locals.user;
   res.json(user);
 })

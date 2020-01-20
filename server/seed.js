@@ -60,12 +60,17 @@ const seed = async () => {
   })
 
   await maleeha.addEvent(event1);
-  await event1.addUser(maleeha);
-  await richard.addEvent(event2);
-  await event2.addUser(richard);
-  await sam.addEvent(event3);
-  await event3.addUser(sam);
+  await maleeha.addEvent(event2);
+  await maleeha.addEvent(event3);
 
+
+await event1.addUser(maleeha);
+await event2.addUser(maleeha);
+  await event3.addUser(maleeha);
+
+  await event1.addUser(sam);
+  await event2.addUser(sam);
+  await event3.addUser(richard);
 
   process.exit();
 }

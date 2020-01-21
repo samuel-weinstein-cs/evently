@@ -1,4 +1,5 @@
 const { Sequelize } = require("sequelize");
+
 let sequelize;
 if(process.env.DATABASE_URL){
   sequelize = new Sequelize(process.env.DATABASE_URL, {
@@ -7,6 +8,7 @@ if(process.env.DATABASE_URL){
       underscored: true
     }
   })
+
 }else {
   sequelize = new Sequelize({
     database: "evently_db",

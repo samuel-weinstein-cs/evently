@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios"
-import EventPage from "./EventPage"
+
 import { deleteEvent, updateEvent } from "../services/api_helper"
 
 class SingleEvent extends Component {

@@ -350,5 +350,21 @@ color: #1D1D2C
   border: .25vw solid white;
   font-family: 'Notable', sans-serif;
   font-size: 1.25vw;
-  color:;
+  
+}
+
+.attendPic img {
+  height: 10vh;
+  
+  
+}
+
+.attendPic {
+  display: flex;
+  
+}
+
+.attendProf {
+  text-align: center;
+  border: .25vw solid white;
 }

@@ -131,9 +131,15 @@ class SingleEvent extends Component {
           <h2>Members Attending</h2>
           <div className="attend">
             {this.state.users ?
-              <div>
-                {this.state.users&&this.state.users.map((user,key)=>(
-                  <Link to={`/user/${user.id}`} key={key}>{user.username}</Link>
+              <div className="attendPic">
+
+                {this.state.users && this.state.users.map((user, key) => (
+                  <div className="attendProf">
+                  <Link   to={`/user/${user.id}`} key={key}>{user.username}
+                    <br/>
+                  <img src={user.image_url} alt="profile pic" />
+                  </Link>
+                  </div>
                 ))}
               </div>:
               <span>No Memebers Attending At the Moment</span>

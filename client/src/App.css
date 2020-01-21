@@ -149,3 +149,46 @@ display: flex;
 .events-by-category img{
   width: 10vw;
 }
+
+.singleEv {
+  margin: 2vw 50vw;
+  background-color: #FF9C5B;
+  padding: 2.5vw;
+}
+
+.evenImg {
+  height: 50vh;
+}
+
+.attend {
+  width: 45vw;
+  background-color: pink;
+  padding: 1vw;
+}
+
+.attendBut {
+  text-align: center;
+  border-radius: 5px;
+  font-family: 'Anton', sans-serif;
+  font-size: 1vw;
+}
+
+.submitForm {
+  display: flex;
+  flex-direction: column;
+
+  
+}
+
+.centImg {
+  align-content: center;
+  background-color: black;
+}
+
+input {
+  height: 5vh;
+}
+
+.tags {
+  font-family: 'Notable', sans-serif;
+}

@@ -46,7 +46,7 @@ class CreateEvent extends Component {
       <div className="form" >
         <form className="createForm" onSubmit={(e) => this.submitEvent(e, this.state.event)}>
 
-        <label htmlFor="title">Name of event </label>
+          <label htmlFor="title">Name of event </label>
           <input
             type="text"
             name="title"
@@ -54,7 +54,7 @@ class CreateEvent extends Component {
             placeholder="Event Name"
             onChange={this.handleChange}
           />
-          <label htmlFor="category">Category for event (gaming, art, food, travel, music, etc....)</label>
+          <label htmlFor="category">Category for event </label>
           <input
             type="text"
             name="category"
@@ -70,7 +70,7 @@ class CreateEvent extends Component {
             placeholder="Any entry fees?"
             onChange={this.handleChange}
           />
-<label htmlFor="description">Description</label>
+          <label htmlFor="description">Description</label>
           <input
 
             type="text"
@@ -87,7 +87,7 @@ class CreateEvent extends Component {
             placeholder="Date of Event"
             onChange={this.handleChange}
           />
-<label htmlFor="location">Location for event</label>
+          <label htmlFor="location">Location for event</label>
           <input
             type="text"
             name="location"

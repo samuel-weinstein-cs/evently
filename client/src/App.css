@@ -154,6 +154,8 @@ display: flex;
   margin: 2vw 50vw;
   background-color: #FF9C5B;
   padding: 2.5vw;
+  font-family: 'Bellefair', serif;
+  font-size: 4vh;
 }
 
 .evenImg {
@@ -182,7 +184,8 @@ display: flex;
 
 .centImg {
   align-content: center;
-  background-color: black;
+  
+  border: .5vw solid white;
 }
 
 input {
@@ -192,3 +195,13 @@ input {
 .tags {
   font-family: 'Notable', sans-serif;
 }
+
+.userProf {
+  margin: 2vw 50vw;
+  background-color: #FF9C5B;
+  padding: 2.5vw;
+  font-family: 'Bellefair', serif;
+  font-size: 4vh;
+  
+}
+

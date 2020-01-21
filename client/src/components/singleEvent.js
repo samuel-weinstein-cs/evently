@@ -10,8 +10,8 @@ class SingleEvent extends Component {
 
     this.state = {
       attending: false,
-      users: null, 
-        changes: false
+      users: null,
+      changes: false
 
     }
   }
@@ -29,19 +29,19 @@ class SingleEvent extends Component {
     console.log(event)
     let eventDat = event.data.event
     this.setState({
-      
-        title: eventDat.title,
-        date: eventDat.date,
-        category: eventDat.category,
-        image_url: eventDat.image_url,
-        startTime: eventDat.startTime,
-        endTime: eventDat.endTime,
-        description: eventDat.description,
-        entry: eventDat.entry,
-        location: eventDat.location,
+
+      title: eventDat.title,
+      date: eventDat.date,
+      category: eventDat.category,
+      image_url: eventDat.image_url,
+      startTime: eventDat.startTime,
+      endTime: eventDat.endTime,
+      description: eventDat.description,
+      entry: eventDat.entry,
+      location: eventDat.location,
       id: eventDat.id,
-      
-      
+
+
 
 
     })
@@ -53,11 +53,11 @@ class SingleEvent extends Component {
     const { name, value } = e.target
 
     this.setState({
-      
-      
-       
-        [name]: value
-      
+
+
+
+      [name]: value
+
     })
   }
 
@@ -71,7 +71,7 @@ class SingleEvent extends Component {
     e.preventDefault();
     updateEvent(event.id, event)
     this.setState({
-        changes: false
+      changes: false
     })
   }
 
@@ -86,7 +86,7 @@ class SingleEvent extends Component {
       attending: false
     })
   }
-  
+
   needsUpdate = (e) => {
     this.setState({
       changes: true
@@ -95,40 +95,40 @@ class SingleEvent extends Component {
 
   handleHide = (e) => {
     this.setState({
-      
+
       changes: false
     })
   }
 
 
   render() {
-    
+
     return (
       <div>
         <div className="singleEv">
-        <h1>{this.state.title}</h1>
-        <p>{this.state.date}</p>
+          <h1>{this.state.title}</h1>
+          <p>{this.state.date}</p>
           <p> <span className="tags">Category: </span> {this.state.category}</p>
-          
-        <img src={this.state.image_url}  className="evenImg" />
-           
-        <p> <span className="tags"> Description : </span>  <br />{this.state.description} </p>
-        <p><span className="tags"> Entry Fee: </span> {this.state.entry}</p>
-          <p>
-          <span className="tags"> Location: </span>  {this.state.location}</p>
-        <p> <span className="tags"> Starts at </span>  {this.state.startTime}</p>
-      <p> <span className="tags"> Ends at </span> {this.state.endTime}</p>
-      
-      
-      <div className="attendBut">
-        {this.state.attending === false 
-          ? 
-          <button className="attendBut" onClick={this.handleAttend}>Attending!</button>
-          :
-          <button className="attendBut" onClick={this.handleNotAttend}> Not attending </button>
-            }
+            <div className="sizing">
+            <img className="centImg" src={this.state.image_url} />
             </div>
-          
+          <p> <span className="tags"> Description : </span>  <br />{this.state.description} </p>
+          <p><span className="tags"> Entry Fee: </span> {this.state.entry}</p>
+          <p>
+            <span className="tags"> Location: </span>  {this.state.location}</p>
+          <p> <span className="tags"> Starts at </span>  {this.state.startTime}</p>
+          <p> <span className="tags"> Ends at </span> {this.state.endTime}</p>
+
+
+          <div className="attendBut">
+            {this.state.attending === false
+              ?
+              <button className="attendBut" onClick={this.handleAttend}>Attending!</button>
+              :
+              <button className="attendBut" onClick={this.handleNotAttend}> Not attending </button>
+            }
+          </div>
+
           <h2>Members Atttending</h2>
           <div className="attend">
             {this.state.users === null ?
@@ -138,16 +138,16 @@ class SingleEvent extends Component {
           </div>
 
           {this.state.changes === false ?
-            
+
             <button onClick={this.needsUpdate}>Need to make any changes?</button>
-            
+
             :
-              
+
             <form onSubmit={(e) => this.handleUpdate(e, this.state)}>
               <button>Hide</button>
-              <br/>
+              <br />
               <input type="text" name="title" value={this.state.title} placeholder="Name of Event" onChange={this.handleChange} />
-            
+
               <div className="submitForm">
 
                 <input
@@ -202,16 +202,16 @@ class SingleEvent extends Component {
                   onChange={this.handleChange}
                 />
                 <input type="submit" />
-              
+
               </div>
-       
+
             </form>
-          } 
-          
+          }
+
           <form onSubmit={(e) => this.handleDelete(e, this.state.id)}>
-          <input type="submit" value="Delete Event" />
+            <input type="submit" value="Delete Event" />
           </form>
-          
+
         </div>
 
 

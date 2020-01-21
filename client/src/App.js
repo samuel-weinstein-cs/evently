@@ -4,16 +4,18 @@ import Footer from "./components/Footer"
 import HomePage from "./components/HomePage"
 import Login from "./components/Login"
 import UserPage from "./components/UserPage"
-import EventPage from "./components/EventPage"
+import ExploreEventsPage from "./components/ExploreEventsPage"
 import CreateEvent from './components/CreateEvent'
 import Register from './components/Register'
 import SingleEvent from "./components/singleEvent"
 import UserProfile from "./components/userProfile"
+import EventByCategory from "./components/EventByCategory"
+
 import { loginUser, registerUser, verifyUser } from './services/api_helper';
 
 
 import { getUsers, getEvents } from "./services/api_helper"
-import { Route } from "react-router-dom"
+import { Route, withRouter } from 'react-router-dom'
 
 import './App.css';
 
@@ -27,17 +29,20 @@ class App extends Component {
       eventApiDataLoaded: false,
       events: [],
       currentUser: null,
-      errorText: ''
+      errorText: '',
+      isLoggedOut: true,
     }
   }
 
 
   handleLogin = async (e, loginData) => {
     e.preventDefault();
-    console.log("help me");
     const currentUser = await loginUser(loginData);
-    this.setState({ currentUser });
-
+    this.setState({
+      currentUser,
+      isLoggedOut: false
+    });
+    this.props.history.push('/')
   }
   //register
   handleRegister = async (e, registerData) => {
@@ -52,7 +57,8 @@ class App extends Component {
       const currentUser = await registerUser(registerData);
       this.setState({
         currentUser,
-        errorText: ''
+        errorText: '',
+        isLoggedOut: false
       })
     }
   }
@@ -65,12 +71,12 @@ class App extends Component {
       })
     }
   }
-
   //Logout
   handleLogout = () => {
 
     this.setState({
       currentUser: null,
+      isLoggedOut: true
 
     })
     localStorage.removeItem('authToken');
@@ -102,6 +108,7 @@ class App extends Component {
                 currentUser={this.state.currentUser}
                 events={this.state.events}
                 eventApiDataLoaded={this.state.eventApiDataLoaded}
+                isLoggedOut={this.state.isLoggedOut}
               />
             )}
           />
@@ -118,7 +125,7 @@ class App extends Component {
           <Route
             exact path="/event"
             render={() => (
-              <EventPage
+              <ExploreEventsPage
                 events={this.state.events}
                 eventApiDataLoaded={this.state.eventApiDataLoaded}
               />
@@ -138,6 +145,7 @@ class App extends Component {
 
                 handleLogin={this.handleLogin}
                 currentUser={this.state.currentUser}
+                isLoggedOut={this.state.isLoggedOut}
               />
             )}
           />
@@ -148,23 +156,31 @@ class App extends Component {
 
                 handleRegister={this.handleRegister}
                 currentUser={this.state.currentUser}
+                isLoggedOut={this.state.isLoggedOut}
 
               />
             )}
           />
-          <Route 
+          <Route
             exact path={`/event/:eventId`}
             render={(props) =>
-              <SingleEvent  {...props} component={EventPage} />} />
-            
-          <Route 
-            exact path={`/user/:userId`} render={(props) => <UserProfile  {...props} component={UserPage}/>} />
+              <SingleEvent  {...props} component={ExploreEventsPage} />} />
+          <Route
+            exact path={`/events/:category`}
+            render={(props) =>
+              <EventByCategory
+                {...props} component={HomePage}
+              />
+            }
+          />
+          <Route
+            exact path={`/user/:userId`} render={(props) => <UserProfile  {...props} component={UserPage} />} />
         </main>
-        
+
         <Footer />
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

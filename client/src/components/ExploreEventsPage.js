@@ -1,12 +1,11 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
-import SingleEvent from "./singleEvent"
+import { Link } from 'react-router-dom';
 
-function EventPage(props)  {
+function ExploreEventsPage(props) {
   return (
     <div>
       <main>
-        <h3>Display all Events</h3>
+        <h3>Upcoming Events</h3>
         <div className="events-wrapper">
           {props.eventApiDataLoaded && props.events.events.map(event => (
             <div className="event">
@@ -17,17 +16,16 @@ function EventPage(props)  {
               <p>What to Expect: {event.description}</p>
               <p>Start Time: {event.startTime}</p>
               <p>End Time: {event.endTime}</p>
-              
+
               <Link to={`/event/${event.id}`} id={event.id}  >Click for details</Link>
-              
             </div>
           ))
           }
         </div>
-        <Link to="/CreateEvent" type="submit" ><h1>Create Event</h1></Link>
+        <Link to="/CreateEvent" type="submit" ><input type="submit" value="Create New Event" /></Link>
       </main>
     </div>
   )
 }
 
-export default EventPage;
+export default ExploreEventsPage;

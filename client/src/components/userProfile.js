@@ -1,4 +1,4 @@
-import React, {Component} from "react"
+import React, { Component } from "react"
 import axios from "axios";
 
 
@@ -10,10 +10,10 @@ class UserProfile extends Component {
 
     }
   }
- 
-  componentDidMount =  async () => {
+
+  componentDidMount = async () => {
     let user = await axios(`http://localhost:3000/user/${this.props.match.params.userId}`)
-    
+
     let userInfo = user.data.user
     console.log(userInfo)
     this.setState({
@@ -24,15 +24,15 @@ class UserProfile extends Component {
       join_date: userInfo.join_date
 
     })
- } 
-
-  
+  }
 
 
-  
+
+
+
   render() {
-    
-  
+
+
     return (
       <div className="user">
         <div className="userProf">

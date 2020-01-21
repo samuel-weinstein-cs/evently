@@ -3,7 +3,6 @@ import axios from "axios"
 
 import { deleteEvent, updateEvent } from "../services/api_helper"
 
-
 class SingleEvent extends Component {
   constructor(props) {
     super(props);
@@ -15,14 +14,6 @@ class SingleEvent extends Component {
 
     }
   }
-
-
-
-
-
-
-
-
 
   async componentDidMount() {
     let event = await axios(`http://localhost:3000/event/${this.props.match.params.eventId}`);
@@ -40,10 +31,6 @@ class SingleEvent extends Component {
       entry: eventDat.entry,
       location: eventDat.location,
       id: eventDat.id,
-
-
-
-
     })
     console.log(this.state)
 
@@ -53,9 +40,6 @@ class SingleEvent extends Component {
     const { name, value } = e.target
 
     this.setState({
-
-
-
       [name]: value
 
     })
@@ -217,10 +201,10 @@ class SingleEvent extends Component {
 
       </div>
     )
-
   }
 
 
+  
 }
 
-export default SingleEvent; 
+export default SingleEvent;

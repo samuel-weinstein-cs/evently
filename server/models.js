@@ -1,13 +1,24 @@
 const { Sequelize } = require("sequelize");
 
+let sequelize; 
 
-const sequelize = new Sequelize({
-  database: "evently_db",
-  dialect: "postgres",
-  define: {
-    underscored: true
-  }
-})
+if (process.env.DATABASE_URL) {
+  sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialect: 'postgres',
+    define: {
+      underscored: true
+    }
+  })
+} else {
+
+  const sequelize = new Sequelize({
+    database: "evently_db",
+    dialect: "postgres",
+    define: {
+      underscored: true
+    }
+  })
+}
 
 class User extends Sequelize.Model { }
 
@@ -49,9 +60,14 @@ Event.init({
 User.hasMany(Event, { onDelete: 'cascade' });
 Event.belongsTo(User);
 
+Attending = sequelize.define('attending');
+
+User.belongsToMany(Event,{through:Attending});
+Event.belongsToMany(User,{through:Attending});
 
 module.exports = {
   User,
   Event,
+  Attending,
   sequelize
 }

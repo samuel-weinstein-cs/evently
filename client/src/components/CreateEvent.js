@@ -35,18 +35,20 @@ class CreateEvent extends Component {
 
   submitEvent = async (e, newEvent) => {
     e.preventDefault();
-    const event = createEvent(newEvent)
-
-
-
+    try {
+      axios.post('http://localhost:3000/event', this.state.event)
+    }
+    catch (e) {
+      console.log("Something went wrong. Please test connection and try again!")
+    }
   }
 
 
   render() {
     console.log(this.state.event)
     return (
-      <div>
-        <form onSubmit={(e) => this.submitEvent(e, this.state.event)}>
+      <div className="form" >
+        <form className="createForm" onSubmit={(e) => this.submitEvent(e, this.state.event)}>
           <input
             type="text"
             name="title"
@@ -109,7 +111,7 @@ class CreateEvent extends Component {
             type="text"
             name="image_url"
             value={this.state.image_url}
-            placeholder="Image for Event"
+            placeholder="Image URL to be displayed for Event"
             onChange={this.handleChange}
           />
           <input type="Submit" value="Create Your Event!" readOnly={true} />

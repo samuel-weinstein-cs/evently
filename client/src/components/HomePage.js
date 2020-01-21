@@ -104,6 +104,22 @@ function HomePage(props) {
         <span>Upcoming Events</span>
 
         <Link to={`/events/gaming`} category='Gaming' className="home-heading"  ><h2>Gaming</h2></Link>
+        <h2>Outdoors and Adventure</h2>
+        <div className="events-by-category">
+          {props.eventApiDataLoaded && props.events.events.map(event => (
+            <div className="event">
+              <Link to={`/event/${event.id}`} id={event.id}  >
+              <p>Title: {event.title}</p>
+              <img src={event.image_url} alt='event' />
+              <p>Date: {event.date}</p>
+              <p>Location:{event.location} </p>
+                <p>Start Time: {event.startTime}</p>
+                </Link>
+            </div>
+          ))
+          }
+        </div>
+        <h2>Women in Tech</h2>
         <div className="events-by-category">
           {props.eventApiDataLoaded && props.events.events.map(event => (
             <div className="event">

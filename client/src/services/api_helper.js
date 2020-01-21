@@ -49,6 +49,26 @@ export const verifyUser = async () => {
     return resp.data;
   }
 }
+export const createEvent = async (newEvent) => {
+  const resp = await api.post('/event', newEvent);
+  localStorage.setItem('authToken', resp.data.token);
+  api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`;
+  return resp.data.user;
+
+}
+
+export const deleteEvent = async (eventToDeleteId) => {
+  const token = localStorage.getItem('authToken');
+  const resp = await api.delete(`/event/${eventToDeleteId}`, { headers: { Authorization: `Bearer ${token}` } });
+  
 
 
+}
+
+export const updateEvent = async (eventId, updateEvent) => {
+  const resp = await api.put(`event/${eventId}`, updateEvent);
+  localStorage.setItem('authToken', resp.data.token);
+  api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`;
+  return resp.data.user;
+}
 

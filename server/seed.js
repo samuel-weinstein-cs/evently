@@ -47,8 +47,8 @@ const seed = async () => {
     "username": "Maleeha",
     "password_digest": "$2b$11$jKeBUnZYoPIgRki.U5B5o.UMR6TtECB3e0HQvkwWVrse5JJBroC2C",
     "image_url": "https://i.imgur.com/j9j8hII.jpg",
-    "description": "abcd",
-    "interests": "m, n, o, p",
+    "description": "I like dollar pizza and crowded starbucks! I am  also partial to long commutes and quinoa filled lunches. I am told I am an excellent coder but I already knew that. I hope to find some great events to attend through evently.",
+    "interests": "Pizza, Coding, Gaming, Pizza, Coding",
     "join_date": "Jan 17, 2020"
   })
 
@@ -56,8 +56,8 @@ const seed = async () => {
     "username": "Richard",
     "password_digest": "$2b$11$7zoiX9RizkmXwF0bZkPAYebA.yvzBJsRml.yI0XB8cNMrF/vvk99m",
     "image_url": "https://s3.amazonaws.com/nooklyn-pro/agents/26284/xlarge/newheadshot.jpeg",
-    "description": "efgh",
-    "interests": "q, r, s, t",
+    "description": "An annoying asshole by most accounts. I am good at overeating, wasting time on the internet and doing things I am too old to do. I hope to find some great events through our new platform evently!",
+    "interests": "Gaming, Pizza, Generally Unhealthy Foods, Coding",
     "join_date": "Jan 17, 2020"
   })
 
@@ -65,8 +65,8 @@ const seed = async () => {
     "username": "Sam",
     "password_digest": "$2b$11$eEumHGhZY3SYT9UHdKFX2eFT8XzdEKUu0tRdJcUaP2gHF4Ppr65va",
     "image_url": "https://i.imgur.com/aLCxuY0.jpg",
-    "description": "ijkl",
-    "interests": "u, v, w, x",
+    "description": "Hi I am Sam. I am an incredibly talented coder and love food. Yayforfood!!!! You can find me in my where's Waldo hat hacking away at making the next big thing or maybe just something I find enjoyable. I hope to find some stellar events through my new platform evently!",
+    "interests": "Coding, Food, Day-trading, Gambling, Gaming",
     "join_date": "Jan 17, 2020"
   })
 

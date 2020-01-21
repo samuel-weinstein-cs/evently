@@ -36,11 +36,16 @@ class UserProfile extends Component {
     return (
       <div className="user">
         <div className="userProf">
+          <div className="profilePic">
         <h1>{this.state.username}</h1>
-        <img className="centImg" src={this.state.image_url} />
-        <h2>Intersts: {this.state.interests}</h2>
-        <h3>A little about me: <br /> {this.state.description}</h3>
-          <p>Member Since: {this.state.join_date}</p>
+            <img className="userImg" src={this.state.image_url} alt='user' />
+          </div>
+          <div className="profileInfo">
+          <h3>A little about me: <br /> {this.state.description}</h3>
+        <h2>Interests: {this.state.interests}</h2>
+       
+            <p>Member Since: {this.state.join_date}</p>
+            </div>
           </div>
       </div>
     )

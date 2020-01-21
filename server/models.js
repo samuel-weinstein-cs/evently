@@ -49,9 +49,14 @@ Event.init({
 User.hasMany(Event, { onDelete: 'cascade' });
 Event.belongsTo(User);
 
+Attending = sequelize.define('attending');
+
+User.belongsToMany(Event,{through:Attending});
+Event.belongsToMany(User,{through:Attending});
 
 module.exports = {
   User,
   Event,
+  Attending,
   sequelize
 }

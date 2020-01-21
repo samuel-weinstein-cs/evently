@@ -164,7 +164,7 @@ class App extends Component {
           <Route
             exact path={`/event/:eventId`}
             render={(props) =>
-              <SingleEvent  {...props} component={ExploreEventsPage} />} />
+              <SingleEvent  {...props} component={ExploreEventsPage} currentUser={this.state.currentUser}/>} />
           <Route
             exact path={`/events/:category`}
             render={(props) =>

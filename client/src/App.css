@@ -266,7 +266,10 @@ flex-direction: column;
 
 .form {
   background-color: #811E7F;
-  width: 50vw;
+  width: 40vw;
   margin: 3vw;
   padding: 2vw;
+  border: .25vw solid white;
+  font-family: 'Notable', sans-serif;
+  font-size: 1.25vw;
 }

@@ -188,7 +188,7 @@ display: flex;
 }
 
 .evenImg {
-  height: 50vh;
+  width: 50vw;
 }
 
 .attend {
@@ -213,7 +213,7 @@ display: flex;
 
 .centImg {
   align-content: center;
-
+  width: 50vw;
   border: .5vw solid white;
 }
 
@@ -226,9 +226,50 @@ input {
 }
 
 .userProf {
-  margin: 2vw 50vw;
+  display: flex;
+  flex-direction: row;
+  margin: 2vw 25vw;
   background-color: #FF9C5B;
   padding: 2.5vw;
   font-family: 'Bellefair', serif;
   font-size: 4vh;
+}
+
+  
+
+
+.userImg{
+  align-content: center;
+  width: 15vw;
+  border: .5vw solid white;
+}
+
+.profilePic{
+  padding: 1vw;
+  
+}
+
+.profileInfo {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  padding: 2vw;
+  font-size: 1vw;
+}
+
+.createForm {
+display: flex;
+flex-direction: column;
+
+
+}
+
+.form {
+  background-color: #811E7F;
+  width: 40vw;
+  margin: 3vw;
+  padding: 2vw;
+  border: .25vw solid white;
+  font-family: 'Notable', sans-serif;
+  font-size: 1.25vw;
 }

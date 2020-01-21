@@ -1,6 +1,6 @@
 import axios from 'axios';
 const api = axios.create({
-  baseURL: "http://localhost:3000"
+  baseURL: "http://localhost:3000" //https://pure-mesa-34992.herokuapp.com/
 })
 
 export const getUsers = async () => {
@@ -59,7 +59,8 @@ export const createEvent = async (newEvent) => {
 
 export const deleteEvent = async (eventToDeleteId) => {
   const token = localStorage.getItem('authToken');
-  const resp = await api.delete(`/event/${eventToDeleteId}`, { headers: { Authorization: `Bearer ${token}` } });
+
+  const resp = await api.delete(`/event/${eventToDeleteId}`);
   
 
 

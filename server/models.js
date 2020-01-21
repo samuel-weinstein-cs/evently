@@ -51,8 +51,8 @@ Event.belongsTo(User);
 
 Attending = sequelize.define('attending');
 
-User.belongsToMany(Event,{through:Attending});
-Event.belongsToMany(User,{through:Attending});
+User.belongsToMany(Event, { through: Attending });
+Event.belongsToMany(User, { through: Attending });
 
 module.exports = {
   User,

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios"
-import EventPage from "./EventPage"
-import { deleteEvent, updateEvent } from "../services/api_helper"
+import { deleteEvent, updateEvent, AttendEvent, deleteAttendEvent, getAttendEvent } from "../services/api_helper"
 
 class SingleEvent extends Component {
   constructor(props) {
@@ -44,11 +43,9 @@ class SingleEvent extends Component {
 
     })
   }
-
-
-  handleDelete = async (e, eventId) => {
+  handleDelete = async (e) => {
     e.preventDefault();
-    deleteEvent(eventId)
+    deleteEvent(this.state.id)
   }
 
   handleUpdate = async (e, event) => {
@@ -59,27 +56,28 @@ class SingleEvent extends Component {
     })
   }
 
-  handleAttend = (e) => {
-    this.setState({
-      attending: true
-    })
+  handleAttend = async () => {
+    if(this.state.attending){
+      this.setState({
+        attending: false
+      })
+
+    } else {
+      this.setState({
+        attending: true
+      })
+    }
   }
 
-  handleNotAttend = (e) => {
-    this.setState({
-      attending: false
-    })
-  }
 
-  needsUpdate = (e) => {
+  needsUpdate = () => {
     this.setState({
       changes: true
     })
   }
 
-  handleHide = (e) => {
+  handleHide = () => {
     this.setState({
-
       changes: false
     })
   }
@@ -105,20 +103,20 @@ class SingleEvent extends Component {
 
 
           <div className="attendBut">
-            {this.state.attending === false
-              ?
-              <button className="attendBut" onClick={this.handleAttend}>Attending!</button>
-              :
-              <button className="attendBut" onClick={this.handleNotAttend}> Not attending </button>
-            }
+              <button className="attendBut" onClick={this.handleAttend}>
+                {this.state.attending === false?
+                  'Attend Event':
+                  'Un-Attend Event'
+                }
+              </button>
           </div>
 
-          <h2>Members Atttending</h2>
+          <h2>Members Attending</h2>
           <div className="attend">
-            {this.state.users === null ?
-              <h2>No Memebers Attending At the Moment</h2>
+            {this.state.users ?
               :
-              <h2>RICHARD</h2>}
+              <h2>No Memebers Attending At the Moment</h2>
+            }
           </div>
 
           {this.state.changes === false ?
@@ -192,9 +190,9 @@ class SingleEvent extends Component {
             </form>
           }
 
-          <form onSubmit={(e) => this.handleDelete(e, this.state.id)}>
-            <input type="submit" value="Delete Event" />
-          </form>
+          <button onClick={(e) => this.handleDelete(e)}>
+            Delete Event
+          </button>
 
         </div>
 
@@ -204,7 +202,7 @@ class SingleEvent extends Component {
   }
 
 
-  
+
 }
 
 export default SingleEvent;

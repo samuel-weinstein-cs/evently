@@ -35,20 +35,18 @@ class CreateEvent extends Component {
 
   submitEvent = async (e, newEvent) => {
     e.preventDefault();
-    try {
-      axios.post('http://localhost:3000/event', this.state.event)
-    }
-    catch (e) {
-      console.log("Something went wrong. Please test connection and try again!")
-    }
+    const event = createEvent(newEvent)
+
+
+
   }
-
-
   render() {
     console.log(this.state.event)
     return (
-      <div>
-        <form onSubmit={(e) => this.submitEvent(e, this.state.event)}>
+      <div className="form" >
+        <form className="createForm" onSubmit={(e) => this.submitEvent(e, this.state.event)}>
+
+          <label htmlFor="title">Name of event </label>
           <input
             type="text"
             name="title"
@@ -56,6 +54,7 @@ class CreateEvent extends Component {
             placeholder="Event Name"
             onChange={this.handleChange}
           />
+          <label htmlFor="category">Category for event </label>
           <input
             type="text"
             name="category"
@@ -63,6 +62,7 @@ class CreateEvent extends Component {
             placeholder="Category of Event"
             onChange={this.handleChange}
           />
+          <label htmlFor="entry">Any entry fees?</label>
           <input
             type="text"
             name="entry"
@@ -70,7 +70,7 @@ class CreateEvent extends Component {
             placeholder="Any entry fees?"
             onChange={this.handleChange}
           />
-
+          <label htmlFor="description">Description</label>
           <input
 
             type="text"
@@ -79,6 +79,7 @@ class CreateEvent extends Component {
             placeholder="Event Details"
             onChange={this.handleChange}
           />
+          <label htmlFor="date">Date of event</label>
           <input
             type="text"
             name="date"
@@ -86,6 +87,7 @@ class CreateEvent extends Component {
             placeholder="Date of Event"
             onChange={this.handleChange}
           />
+          <label htmlFor="location">Location for event</label>
           <input
             type="text"
             name="location"
@@ -93,6 +95,7 @@ class CreateEvent extends Component {
             placeholder="Address/Location"
             onChange={this.handleChange}
           />
+          <label htmlFor="startTime">State Time for event</label>
           <input
             type="text"
             name="startTime"
@@ -100,6 +103,7 @@ class CreateEvent extends Component {
             placeholder="Start Time"
             onChange={this.handleChange}
           />
+          <label htmlFor="endTime">End time for event</label>
           <input
             type="text"
             name="endTime"
@@ -107,11 +111,12 @@ class CreateEvent extends Component {
             placeholder="End Time"
             onChange={this.handleChange}
           />
+          <label htmlFor="image_url">Put image URL destination here</label>
           <input
             type="text"
             name="image_url"
             value={this.state.image_url}
-            placeholder="Image for Event"
+            placeholder="Image URL to be displayed for Event"
             onChange={this.handleChange}
           />
           <input type="Submit" value="Create Your Event!" readOnly={true} />

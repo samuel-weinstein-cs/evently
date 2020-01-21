@@ -20,10 +20,10 @@ class Login extends Component {
   render() {
     return (
       <div className="login">
-        <p>Welcome to <span>Evently!</span></p>
+        <p>Welcome to <span1>Evently!</span1></p>
         <p>Enter username and password to continue. </p>
         {this.props.isLoggedOut ?
-          <form onSubmit={(e) =>
+          <form className="login-form" onSubmit={(e) =>
             this.props.handleLogin(e,
               {
                 username: this.state.username,
@@ -31,30 +31,29 @@ class Login extends Component {
               }
             )
           }>
-            <label htmlFor="username">Username</label>
+            <label htmlFor="username"><label-text>Username</label-text></label>
             <input
               type="text"
               placeholder="Enter Username"
               name="username"
               onChange={this.onChange}
             />
-            <label htmlFor="password">password</label>
+            <label htmlFor="password"><label-text>Password</label-text></label>
             <input
               type="password"
               placeholder="Enter Password"
               name="password"
               onChange={this.onChange}
             />
-            {/* <Link to="/"> */}
             <input
               type="submit"
-              className="button"
+              className="createButton"
               value="Log in"
+
             />
-            {/* </Link> */}
           </form> : <Redirect to="/" />}
         <Link to="/register">
-          <h1>New User? Sign up here</h1>
+          <span1>New User? Sign up here</span1>
         </Link>
       </div >
     )

@@ -35,10 +35,12 @@ class CreateEvent extends Component {
 
   submitEvent = async (e, newEvent) => {
     e.preventDefault();
-    const event = createEvent(newEvent)
-
-
-
+    try {
+      axios.post('http://localhost:3000/event', this.state.event)
+    }
+    catch (e) {
+      console.log("Something went wrong. Please test connection and try again!")
+    }
   }
 
 

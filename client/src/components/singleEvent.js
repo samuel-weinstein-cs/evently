@@ -3,7 +3,6 @@ import axios from "axios"
 import EventPage from "./EventPage"
 import { deleteEvent, updateEvent } from "../services/api_helper"
 
-
 class SingleEvent extends Component {
   constructor(props) {
     super(props);
@@ -15,15 +14,7 @@ class SingleEvent extends Component {
 
     }
   }
-
-
-
-
-
-
-
-
-
+  
   async componentDidMount() {
     let event = await axios(`http://localhost:3000/event/${this.props.match.params.eventId}`);
     console.log(event)
@@ -40,10 +31,6 @@ class SingleEvent extends Component {
       entry: eventDat.entry,
       location: eventDat.location,
       id: eventDat.id,
-
-
-
-
     })
     console.log(this.state)
 
@@ -53,9 +40,6 @@ class SingleEvent extends Component {
     const { name, value } = e.target
 
     this.setState({
-
-
-
       [name]: value
 
     })
@@ -217,10 +201,25 @@ class SingleEvent extends Component {
 
       </div>
     )
-
   }
 
 
+  render() {
+    console.log(this.props.match.params.eventId)
+    return (
+      <div>
+        <h1>{this.state.title}</h1>
+        <p>{this.state.date}</p>
+        <p> Category: {this.state.category}</p>
+        <img src={this.state.image_url} alt="event" />
+        <p>Description : <br />{this.state.description} </p>
+        <p>Entry Fee: {this.state.entry}</p>
+        <p>Location: {this.state.location}</p>
+        <p>Starts at {this.state.startTime}</p>
+        <p>Ends at {this.state.endTime}</p>
+      </div>
+    )
+  }
 }
 
 export default SingleEvent; 

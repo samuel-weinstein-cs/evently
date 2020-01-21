@@ -59,23 +59,35 @@ main{
   border: 1px solid white;
   padding: 1vh 1vw;
 }
+.login{
+  height: 70vh;
+}
 
 .events-wrapper{
   display: flex;
   flex-direction: column;
 }
 .event{
+  width: 20vw;
   display: flex;
   flex-direction: column;
-  border: 1px solid white;
+  border: 1px solid #1D1D2C;
+  background-color: rgba(255, 255, 255,0.9);
+  color: #1D1D2C;
   padding: 1vh 1vw;
 }
+nav{
+  display: flex;
+  justify-content: flex-end;
 
+}
 a{
   text-decoration: none;
   color:white;
 }
-
+.createButton{
+  text-align:right
+}
 .user >img{
   width: 5vw;
   height: 70%;
@@ -83,7 +95,7 @@ a{
 }
 
 .event >img{
-  width: 50vw;
+  width: 15vw;
 }
 
 button{
@@ -96,11 +108,14 @@ button{
   flex-direction: column;
   justify-content: center;
 }
+
+
 .registrationForm
 {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
 }
 input{
   margin: 1vh 1vw;
@@ -121,21 +136,29 @@ span{
   flex-wrap: wrap;
 }
 .icon{
-  font-size: 2rem;
+  font-size: 3em;
 }
 .row{
  margin: 1vh 1vh;
  display: flex;
- justify-content: space-evenly;
+ justify-content: space-around;
  flex-wrap: wrap;
 
 }
 .categoriesContainer a{
-  font-size: 1em;
-  width: 20vw; 
-  border: 0.01em solid white;
- margin: 0.1vh 0.1vw;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.5em;
+  width: 5vw; 
+  height: 5vh;
+  border-radius: 50%;
+  border: 0.01em solid #1D1D2C;
+  margin: 0.1vh 0.1vw;
   padding:1vh 1vw;
+  background-color: rgb(245, 167, 33);
+  color: #1D1D2C;
 }
 
 .events-by-category{
@@ -149,6 +172,11 @@ display: flex;
 .events-by-category img{
   width: 10vw;
 }
+
+.upcoming-events{
+  text-align: center;
+  background-color: #FF9C5B;
+  margin: 10vh 10vw;
 
 .singleEv {
   margin: 2vw 50vw;
@@ -202,6 +230,5 @@ input {
   padding: 2.5vw;
   font-family: 'Bellefair', serif;
   font-size: 4vh;
-  
 }
 

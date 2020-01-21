@@ -1,17 +1,16 @@
 const { Sequelize } = require("sequelize");
 
-let sequelize; 
-
-if (process.env.DATABASE_URL) {
+let sequelize;
+if(process.env.DATABASE_URL){
   sequelize = new Sequelize(process.env.DATABASE_URL, {
     dialect: 'postgres',
     define: {
       underscored: true
     }
   })
-} else {
 
-  const sequelize = new Sequelize({
+}else {
+  sequelize = new Sequelize({
     database: "evently_db",
     dialect: "postgres",
     define: {
@@ -62,8 +61,8 @@ Event.belongsTo(User);
 
 Attending = sequelize.define('attending');
 
-User.belongsToMany(Event,{through:Attending});
-Event.belongsToMany(User,{through:Attending});
+User.belongsToMany(Event, { through: Attending });
+Event.belongsToMany(User, { through: Attending });
 
 module.exports = {
   User,

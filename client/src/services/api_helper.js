@@ -10,8 +10,19 @@ export const getUsers = async () => {
 export const getEvents = async () => {
   const resp = await api.get('/event');
   return resp;
-
 }
+
+export const getByCategory = async (category) => {
+  const resp = await api.get(`/event/category/${category}`);
+  console.log(resp)
+  return resp;
+}
+
+export const getUserProfile = async (id) => {
+  const resp = await api.get(`/user/${id}`)
+  return resp
+}
+
 
 export const loginUser = async (loginData) => {
   console.log(loginData)
@@ -38,3 +49,26 @@ export const verifyUser = async () => {
     return resp.data;
   }
 }
+export const createEvent = async (newEvent) => {
+  const resp = await api.post('/event', newEvent);
+  localStorage.setItem('authToken', resp.data.token);
+  api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`;
+  return resp.data.user;
+
+}
+
+export const deleteEvent = async (eventToDeleteId) => {
+  const token = localStorage.getItem('authToken');
+  const resp = await api.delete(`/event/${eventToDeleteId}`, { headers: { Authorization: `Bearer ${token}` } });
+  
+
+
+}
+
+export const updateEvent = async (eventId, updateEvent) => {
+  const resp = await api.put(`event/${eventId}`, updateEvent);
+  localStorage.setItem('authToken', resp.data.token);
+  api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`;
+  return resp.data.user;
+}
+

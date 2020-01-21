@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from "axios"
+import { createEvent } from "../services/api_helper.js"
 
 class CreateEvent extends Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class CreateEvent extends Component {
         title: '',
         date: '',
         location: '',
+        entry: '',
         description: '',
         startTime: '',
         endTime: '',
@@ -31,7 +33,8 @@ class CreateEvent extends Component {
     })
   }
 
-  submitEvent = async (event) => {
+  submitEvent = async (e, newEvent) => {
+    e.preventDefault();
     try {
       axios.post('http://localhost:3000/event', this.state.event)
     }
@@ -45,7 +48,7 @@ class CreateEvent extends Component {
     console.log(this.state.event)
     return (
       <div>
-        <form onSubmit={this.submitEvent}>
+        <form onSubmit={(e) => this.submitEvent(e, this.state.event)}>
           <input
             type="text"
             name="title"
@@ -61,6 +64,15 @@ class CreateEvent extends Component {
             onChange={this.handleChange}
           />
           <input
+            type="text"
+            name="entry"
+            value={this.state.entry}
+            placeholder="Any entry fees?"
+            onChange={this.handleChange}
+          />
+
+          <input
+
             type="text"
             name="description"
             value={this.state.description}

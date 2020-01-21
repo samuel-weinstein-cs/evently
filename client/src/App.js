@@ -4,7 +4,7 @@ import Footer from "./components/Footer"
 import HomePage from "./components/HomePage"
 import Login from "./components/Login"
 import UserPage from "./components/UserPage"
-import EventPage from "./components/EventPage"
+import ExploreEventsPage from "./components/ExploreEventsPage"
 import CreateEvent from './components/CreateEvent'
 import Register from './components/Register'
 import SingleEvent from "./components/singleEvent"
@@ -125,7 +125,7 @@ class App extends Component {
           <Route
             exact path="/event"
             render={() => (
-              <EventPage
+              <ExploreEventsPage
                 events={this.state.events}
                 eventApiDataLoaded={this.state.eventApiDataLoaded}
               />
@@ -164,12 +164,12 @@ class App extends Component {
           <Route
             exact path={`/event/:eventId`}
             render={(props) =>
-              <SingleEvent  {...props} component={EventPage} />} />
+              <SingleEvent  {...props} component={ExploreEventsPage} />} />
           <Route
             exact path={`/events/:category`}
             render={(props) =>
               <EventByCategory
-
+                {...props} component={HomePage}
               />
             }
           />

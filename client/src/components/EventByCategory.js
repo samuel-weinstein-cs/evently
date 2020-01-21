@@ -8,20 +8,25 @@ class EventByCategory extends Component {
     super(props)
     this.state = {
       events: [],
-      apiDataLoaded: false
+      apiDataLoaded: false,
+      category: ''
     }
   }
   async componentDidMount() {
-    const resp = await getByCategory(`Gaming`);
+    const category = `${this.props.match.params.category}`
+    const categroryCapitalized = category.charAt(0).toUpperCase() + category.slice(1)
+    const resp = await getByCategory(categroryCapitalized);
     this.setState({
       events: resp.data,
-      apiDataLoaded: true
+      apiDataLoaded: true,
+      category: categroryCapitalized
     })
   }
   render() {
     return (
       <div>
         <div className="events-wrapper">
+          <h1>Upcoming {this.state.category} Events</h1>
           {this.state.apiDataLoaded && this.state.events.map(event => (
             <div className="event">
               <p>Title: {event.title}</p>

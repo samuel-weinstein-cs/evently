@@ -9,10 +9,10 @@ import { GiBallerinaShoes, GiMaterialsScience, GiRaceCar }
 function HomePage(props) {
 
   return (
-    <div>
-      <span>Find your next event here!</span>
+    <div className="home-page">
+      <h2>{props.currentUser && `Hello, ${props.currentUser.username}!`} Find your next event here!</h2>
       <nav>
-        <Link to="/event" className="createButton" type="submit" ><p>Explore Events</p></Link> <p>   |   </p>
+        <Link to="/event" className="createButton" type="submit" ><p>Explore Events</p></Link>
         <Link to="/createevent" className="createButton" type="submit" ><p>Create New Event</p></Link>
       </nav>
       <div className="categoriesContainer">
@@ -104,29 +104,29 @@ function HomePage(props) {
         <span>Upcoming Events</span>
 
         <Link to={`/events/gaming`} category='Gaming' className="home-heading"  ><h2>Gaming</h2></Link>
-        <h2>Outdoors and Adventure</h2>
         <div className="events-by-category">
           {props.eventApiDataLoaded && props.events.events.map(event => (
             <div className="event">
               <Link to={`/event/${event.id}`} id={event.id}  >
-              <p>Title: {event.title}</p>
-              <img src={event.image_url} alt='event' />
-              <p>Date: {event.date}</p>
-              <p>Location:{event.location} </p>
-                <p>Start Time: {event.startTime}</p>
-                </Link>
+                <div className="title">{event.title}</div>
+                <p className="details">{event.tagline}</p>
+                <img src={event.image_url} alt='event' />
+                <p className="details">When:{event.date}</p>
+              </Link>
             </div>
           ))
           }
         </div>
-        <h2>Women in Tech</h2>
+        <Link to={`/events/womenintech`} category='WomenInTech' className="home-heading"  ><h2>Women In Tech</h2></Link>
         <div className="events-by-category">
           {props.eventApiDataLoaded && props.events.events.map(event => (
             <div className="event">
-              <p>{event.title}</p>
-              <img src={event.image_url} alt='event' />
-              <p>{event.tagline} </p>
-              <p>Date: {event.date}</p>
+              <Link to={`/event/${event.id}`} id={event.id}  >
+                <div className="title">{event.title}</div>
+                <p className="details">{event.tagline}</p>
+                <img src={event.image_url} alt='event' />
+                <p className="details">When:{event.date}</p>
+              </Link>
             </div>
           ))
           }
@@ -136,11 +136,12 @@ function HomePage(props) {
         <div className="events-by-category">
           {props.eventApiDataLoaded && props.events.events.map(event => (
             <div className="event">
-              <p>{event.title}</p>
-              <img src={event.image_url} alt='event' />
-              <p>{event.tagline} </p>
-              <p>Date: {event.date}</p>
-
+              <Link to={`/event/${event.id}`} id={event.id}  >
+                <div className="title">{event.title}</div>
+                <p className="details">{event.tagline}</p>
+                <img src={event.image_url} alt='event' />
+                <p className="details">When:{event.date}</p>
+              </Link>
             </div>
           ))
           }
@@ -149,10 +150,12 @@ function HomePage(props) {
         <div className="events-by-category">
           {props.eventApiDataLoaded && props.events.events.map(event => (
             <div className="event">
-              <p>{event.title}</p>
-              <img src={event.image_url} alt='event' />
-              <p>{event.tagline} </p>
-              <p>Date: {event.date}</p>
+              <Link to={`/event/${event.id}`} id={event.id}  >
+                <div className="title">{event.title}</div>
+                <p className="details">{event.tagline}</p>
+                <img src={event.image_url} alt='event' />
+                <p className="details">When:{event.date}</p>
+              </Link>
             </div>
           ))
           }

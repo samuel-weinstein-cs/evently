@@ -119,14 +119,14 @@ class SingleEvent extends Component {
           <p> <span className="tags"> Ends at </span> {this.state.endTime}</p>
 
 
-          <div className="attendBut">
+          {this.props.currentUser&&<div className="attendBut">
               <button className="attendBut" onClick={this.handleAttend}>
                 {this.state.attending?
                   'Un-Attend Event':
                   'Attend Event'
                 }
               </button>
-          </div>
+          </div>}
 
           <h2>Members Attending</h2>
           <div className="attend">
@@ -139,7 +139,7 @@ class SingleEvent extends Component {
               <span>No Memebers Attending At the Moment</span>
             }
           </div>
-
+          {this.props.currentUser&&<div>
           {this.state.changes === false ?
 
             <button onClick={this.needsUpdate}>Need to make any changes?</button>
@@ -214,6 +214,7 @@ class SingleEvent extends Component {
           <button onClick={(e) => this.handleDelete(e)}>
             Delete Event
           </button>
+          </div>}
 
         </div>
 

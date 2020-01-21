@@ -29,7 +29,8 @@ class App extends Component {
       eventApiDataLoaded: false,
       events: [],
       currentUser: null,
-      errorText: ''
+      errorText: '',
+      isLoggedOut: true,
     }
   }
 
@@ -37,8 +38,11 @@ class App extends Component {
   handleLogin = async (e, loginData) => {
     e.preventDefault();
     const currentUser = await loginUser(loginData);
-    this.setState({ currentUser });
-
+    this.setState({
+      currentUser,
+      isLoggedOut: false
+    });
+    this.props.history.push('/')
   }
   //register
   handleRegister = async (e, registerData) => {
@@ -53,7 +57,8 @@ class App extends Component {
       const currentUser = await registerUser(registerData);
       this.setState({
         currentUser,
-        errorText: ''
+        errorText: '',
+        isLoggedOut: false
       })
     }
   }
@@ -66,12 +71,12 @@ class App extends Component {
       })
     }
   }
-
   //Logout
   handleLogout = () => {
 
     this.setState({
       currentUser: null,
+      isLoggedOut: true
 
     })
     localStorage.removeItem('authToken');
@@ -103,6 +108,7 @@ class App extends Component {
                 currentUser={this.state.currentUser}
                 events={this.state.events}
                 eventApiDataLoaded={this.state.eventApiDataLoaded}
+                isLoggedOut={this.state.isLoggedOut}
               />
             )}
           />
@@ -139,6 +145,7 @@ class App extends Component {
 
                 handleLogin={this.handleLogin}
                 currentUser={this.state.currentUser}
+                isLoggedOut={this.state.isLoggedOut}
               />
             )}
           />
@@ -149,6 +156,7 @@ class App extends Component {
 
                 handleRegister={this.handleRegister}
                 currentUser={this.state.currentUser}
+                isLoggedOut={this.state.isLoggedOut}
 
               />
             )}

@@ -8,12 +8,10 @@ import EventPage from './EventPage.js';
 
 
 function HomePage(props) {
-  const a = getByCategory("Gaming");
+
   return (
     <div>
       <span>Find your next event here!</span>
-      {props.currentUser && <p>welcome {props.currentUser}</p>}
-
       <Link to="/CreateEvent" className="createButton" type="submit" ><h2>Create Event</h2></Link>
       <div className="categoriesContainer">
         <span>Categories</span>

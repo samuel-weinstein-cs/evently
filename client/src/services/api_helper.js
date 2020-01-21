@@ -61,7 +61,7 @@ export const deleteEvent = async (eventToDeleteId) => {
   const token = localStorage.getItem('authToken');
 
   const resp = await api.delete(`/event/${eventToDeleteId}`);
-  
+
 
 
 }
@@ -73,3 +73,15 @@ export const updateEvent = async (eventId, updateEvent) => {
   return resp.data.user;
 }
 
+export const attendEvent = async(eventId) => {
+  await api.post(`event/${eventId}/attending`);
+}
+
+export const deleteAttendEvent = async(eventId) => {
+  await api.delete(`event/${eventId}/attending`);
+}
+
+export const getAttendEvent = async(eventId) => {
+  const resp = await api.get(`event/${eventId}/attending`);
+  return resp;
+}

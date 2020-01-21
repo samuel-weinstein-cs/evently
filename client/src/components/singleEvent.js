@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios"
-
-import { deleteEvent, updateEvent } from "../services/api_helper"
+import { Link } from "react-router-dom";
+import { deleteEvent, updateEvent, attendEvent, deleteAttendEvent, getAttendEvent } from "../services/api_helper";
 
 class SingleEvent extends Component {
   constructor(props) {
@@ -16,11 +16,24 @@ class SingleEvent extends Component {
   }
 
   async componentDidMount() {
-    let event = await axios(`http://localhost:3000/event/${this.props.match.params.eventId}`);
-    console.log(event)
-    let eventDat = event.data.event
-    this.setState({
+    const event = await axios(`http://localhost:3000/event/${this.props.match.params.eventId}`);
 
+    console.log(event)
+    const eventDat = event.data.event
+    const users = await getAttendEvent(eventDat.id);
+    let attending = false;
+    const usersList = users.data.users;
+    for (const user in usersList){
+      if (this.props.currentUser && (this.props.currentUser.id === usersList[user].id)){
+        attending = true;
+        break;
+      }
+    }
+    console.log(attending);
+    console.log(users);
+    this.setState({
+      attending,
+      users:users.data.users,
       title: eventDat.title,
       date: eventDat.date,
       category: eventDat.category,
@@ -32,7 +45,6 @@ class SingleEvent extends Component {
       location: eventDat.location,
       id: eventDat.id,
     })
-    console.log(this.state)
 
   }
 
@@ -44,11 +56,9 @@ class SingleEvent extends Component {
 
     })
   }
-
-
-  handleDelete = async (e, eventId) => {
+  handleDelete = async (e) => {
     e.preventDefault();
-    deleteEvent(eventId)
+    deleteEvent(this.state.id)
   }
 
   handleUpdate = async (e, event) => {
@@ -59,27 +69,32 @@ class SingleEvent extends Component {
     })
   }
 
-  handleAttend = (e) => {
-    this.setState({
-      attending: true
-    })
+  handleAttend = async () => {
+    if(this.state.attending){
+      const userList = this.state.users.filter(user => (user.id !== this.props.currentUser.id))
+      this.setState({
+        attending: false,
+        users: userList
+      })
+      await deleteAttendEvent(this.state.id);
+    } else {
+      this.setState({
+        attending: true,
+        users: [...this.state.users, this.props.currentUser]
+      })
+      await attendEvent(this.state.id);
+    }
   }
 
-  handleNotAttend = (e) => {
-    this.setState({
-      attending: false
-    })
-  }
 
-  needsUpdate = (e) => {
+  needsUpdate = () => {
     this.setState({
       changes: true
     })
   }
 
-  handleHide = (e) => {
+  handleHide = () => {
     this.setState({
-
       changes: false
     })
   }
@@ -105,20 +120,24 @@ class SingleEvent extends Component {
 
 
           <div className="attendBut">
-            {this.state.attending === false
-              ?
-              <button className="attendBut" onClick={this.handleAttend}>Attending!</button>
-              :
-              <button className="attendBut" onClick={this.handleNotAttend}> Not attending </button>
-            }
+              <button className="attendBut" onClick={this.handleAttend}>
+                {this.state.attending?
+                  'Un-Attend Event':
+                  'Attend Event'
+                }
+              </button>
           </div>
 
-          <h2>Members Atttending</h2>
+          <h2>Members Attending</h2>
           <div className="attend">
-            {this.state.users === null ?
-              <h2>No Memebers Attending At the Moment</h2>
-              :
-              <h2>RICHARD</h2>}
+            {this.state.users ?
+              <div>
+                {this.state.users&&this.state.users.map((user,key)=>(
+                  <Link to={`/user/${user.id}`} key={key}>{user.username}</Link>
+                ))}
+              </div>:
+              <span>No Memebers Attending At the Moment</span>
+            }
           </div>
 
           {this.state.changes === false ?
@@ -192,9 +211,9 @@ class SingleEvent extends Component {
             </form>
           }
 
-          <form onSubmit={(e) => this.handleDelete(e, this.state.id)}>
-            <input type="submit" value="Delete Event" />
-          </form>
+          <button onClick={(e) => this.handleDelete(e)}>
+            Delete Event
+          </button>
 
         </div>
 
@@ -204,7 +223,7 @@ class SingleEvent extends Component {
   }
 
 
-  
+
 }
 
 export default SingleEvent;

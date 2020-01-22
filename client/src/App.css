@@ -92,20 +92,19 @@ main{
 }
 .event{
   width: 30vw;
-  height: 60vh;
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
   margin: 2vh 2vw;
   justify-content: flex-start;
+  text-align: center;
   border: 1px solid #1D1D2C;
   background-color: rgb(238, 170, 67);
   color: #1D1D2C;
   padding: 1vh 1vw;
 
 }
-img:hover{
-  opacity: 0.5;
-}
+
 .details{
   font-size: 1.25vw;
 }
@@ -139,7 +138,7 @@ p{
   margin: 0;
   font-size: 1.5rem;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 .user >img{
   width: 5vw;
@@ -184,7 +183,7 @@ input{
 
 .createForm input{
   background-color: white;
-  color: #1D1D2C;
+  /* color: #1D1D2C; */
 }
 a :{
   color:#F5644A;
@@ -300,6 +299,7 @@ justify-content: center;
 
 .tags {
   font-family: 'Notable', sans-serif;
+  font-size: 2vw;
 }
 
 .userProf {
@@ -310,6 +310,7 @@ justify-content: center;
   padding: 2.5vw;
   font-family: 'Bellefair', serif;
   font-size: 4vh;
+  border: 2px solid white;
 }
 
 
@@ -341,17 +342,46 @@ label-text{
 display: flex;
 flex-direction: column;
 align-items: center;
-color: #1D1D2C
+/* color: #1D1D2C */
 }
 
 
 .form {
-  background-color: #f0a728;
+  /* background-color: #f0a728; */
   width: 40vw;
   margin: 3vw;
   padding: 2vw;
   border: .25vw solid white;
   font-family: 'Notable', sans-serif;
-  font-size: 1.25vw;
-  color:;
+  font-size: 2vw;
+  background-image: url(http://thevibeguide.net/wp-content/uploads/2014/09/16-10-2013-Koen-Peters-Awakenings-Westergasfabriek-32.jpg);
+  background-attachment: fixed;
+  text-shadow: 5px  5px  white;
+  color: red;
 }
+
+.attendPic img {
+  height: 10vh;
+  border: .15vw solid white;
+  
+}
+
+.attendPic {
+  display: flex;
+  
+  
+}
+
+.attendProf {
+  text-align: center;
+  border: .25vw solid white;
+  background-color: aqua;
+}
+
+.cent {
+  text-align: center;
+}
+
+/* label {
+  background-color: black;
+} */

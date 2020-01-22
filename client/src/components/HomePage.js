@@ -111,7 +111,7 @@ function HomePage(props) {
                 <div className="title">{event.title}</div>
                 <p className="details">{event.tagline}</p>
                 <img src={event.image_url} alt='event' />
-                <p className="details">When:{event.date}</p>
+                <p className="details">{event.date}</p>
               </Link>
             </div>
           ))
@@ -125,7 +125,7 @@ function HomePage(props) {
                 <div className="title">{event.title}</div>
                 <p className="details">{event.tagline}</p>
                 <img src={event.image_url} alt='event' />
-                <p className="details">When:{event.date}</p>
+                <p className="details">{event.date}</p>
               </Link>
             </div>
           ))
@@ -154,7 +154,7 @@ function HomePage(props) {
                 <div className="title">{event.title}</div>
                 <p className="details">{event.tagline}</p>
                 <img src={event.image_url} alt='event' />
-                <p className="details">When:{event.date}</p>
+                <p className="details">{event.date}</p>
               </Link>
             </div>
           ))

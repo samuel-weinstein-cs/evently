@@ -222,7 +222,7 @@ const seed = async () => {
     tagline: "Part of the bring back the soul of the city campaign! "
   })
   const event18 = await Event.create({
-    title: "Hip new gallery shows off ridiculously stupid 'art",
+    title: "Ridiculously stupid 'art'",
     date: "February, 7th, 2020",
     location: "Somewhere in the LES or SOHO",
     startTime: "2pm",

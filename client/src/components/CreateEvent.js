@@ -111,7 +111,7 @@ class CreateEvent extends Component {
             placeholder="End Time"
             onChange={this.handleChange}
           />
-          <label htmlFor="image_url">Put image URL destination here</label>
+          <label htmlFor="image_url">Put image URL here</label>
           <input
             type="text"
             name="image_url"

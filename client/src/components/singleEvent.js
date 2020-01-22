@@ -104,20 +104,15 @@ class SingleEvent extends Component {
 
     return (
       <div>
-          
+
         <div className="singleEv">
           <h1>{this.state.title}</h1>
           <p>{this.state.date}</p>
           <p> <span className="tags">Category: </span> {this.state.category}</p>
-<<<<<<< HEAD
-            <div className="sizing">
-            <img className="centImg" alt="event" src={this.state.image_url} />
-=======
           <div className="sizing">
             <br/>
             <img className="centImg" src={this.state.image_url} />
             <br/>
->>>>>>> development
             </div>
           <p> <span className="tags"> Description: </span>  {this.state.description} </p>
           <br />
@@ -127,7 +122,7 @@ class SingleEvent extends Component {
           <p> <span className="tags"> Starts at </span>   {this.state.startTime}</p>
           <p> <span className="tags"> Ends at </span>   {this.state.endTime}</p>
 
-          
+
 
           {this.props.currentUser&&<div className="attendBut">
               <button className="attendBut" onClick={this.handleAttend}>
@@ -236,7 +231,7 @@ class SingleEvent extends Component {
           <Link to="/event">Back to Explore Events Page</Link>
         </div>
 
-        
+
 
       </div>
     )

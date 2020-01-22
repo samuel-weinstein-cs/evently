@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import axios from "axios"
 import { createEvent } from "../services/api_helper.js"
 
 class CreateEvent extends Component {
@@ -35,13 +34,10 @@ class CreateEvent extends Component {
 
   submitEvent = async (e, newEvent) => {
     e.preventDefault();
-    const event = createEvent(newEvent)
-
-
-
+    await createEvent(newEvent);
   }
   render() {
-    console.log(this.state.event)
+    //console.log(this.state.event)
     return (
       <div className="form" >
         <form className="createForm" onSubmit={(e) => this.submitEvent(e, this.state.event)}>

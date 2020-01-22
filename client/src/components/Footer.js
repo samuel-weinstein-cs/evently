@@ -2,7 +2,9 @@ import React from 'react';
 
 function Footer() {
   return (
-    <p className="footer">Website by Bad Hair Day &#169;</p>
+    <div className="footer" >
+      <p >Website by Bad Hair Day &#169;</p>
+      </div>
   )
 }
 

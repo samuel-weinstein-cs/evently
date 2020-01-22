@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import axios from "axios";
+import { Link } from "react-router-dom"
 
 
 class UserProfile extends Component {
@@ -46,7 +47,8 @@ class UserProfile extends Component {
        
             <p>Member Since: {this.state.join_date}</p>
             </div>
-          </div>
+        </div>
+        <Link to="/event">Back To Explore Events Page</Link>
       </div>
     )
   }

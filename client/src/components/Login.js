@@ -22,6 +22,7 @@ class Login extends Component {
       <div className="login">
         <p>Welcome to <span1>Evently!</span1></p>
         <p>Enter username and password to continue. </p>
+              <br/>
         {this.props.isLoggedOut ?
           <form className="login-form" onSubmit={(e) =>
             this.props.handleLogin(e,
@@ -52,6 +53,7 @@ class Login extends Component {
 
             />
           </form> : <Redirect to="/" />}
+        <br/>
         <Link to="/register">
           <span1>New User? Sign up here</span1>
         </Link>

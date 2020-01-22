@@ -26,7 +26,7 @@ class EventByCategory extends Component {
   render() {
     return (
       <div className="cent">
-        <h1>Upcoming {this.state.category} Events</h1>
+        <h1>Upcoming <span2 className="red"> {this.state.category} </span2> Events</h1>
         <div className="events-wrapper">
           
           <br/>

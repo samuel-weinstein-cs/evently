@@ -111,12 +111,12 @@ class SingleEvent extends Component {
             <div className="sizing">
             <img className="centImg" src={this.state.image_url} />
             </div>
-          <p> <span className="tags"> Description : </span>  <br />{this.state.description} </p>
-          <p><span className="tags"> Entry Fee: </span> {this.state.entry}</p>
+          <p> <span className="tags"> Description: </span>  {this.state.description} </p>
+          <p><span className="tags"> Entry Fee: </span>  {this.state.entry}</p>
           <p>
-            <span className="tags"> Location: </span>  {this.state.location}</p>
-          <p> <span className="tags"> Starts at </span>  {this.state.startTime}</p>
-          <p> <span className="tags"> Ends at </span> {this.state.endTime}</p>
+            <span className="tags"> Location: </span>   {this.state.location}</p>
+          <p> <span className="tags"> Starts at </span>   {this.state.startTime}</p>
+          <p> <span className="tags"> Ends at </span>  {this.state.endTime}</p>
 
 
           {this.props.currentUser&&<div className="attendBut">

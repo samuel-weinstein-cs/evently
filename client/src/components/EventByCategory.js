@@ -24,9 +24,11 @@ class EventByCategory extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="cent">
+        <h1>Upcoming {this.state.category} Events</h1>
         <div className="events-wrapper">
-          <h1>Upcoming {this.state.category} Events</h1>
+          
+          <br/>
           {this.state.apiDataLoaded && this.state.events.map(event => (
             <div className="event">
               <p>Title: {event.title}</p>

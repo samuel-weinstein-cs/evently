@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { getByCategory } from '../services/api_helper';
+import { Link } from "react-router-dom"
 
 
 class EventByCategory extends Component {
@@ -30,16 +31,18 @@ class EventByCategory extends Component {
           
           <br/>
           {this.state.apiDataLoaded && this.state.events.map(event => (
+            <Link to={`/event/${event.id}`} id={event.id}  >
             <div className="event">
-              <p>Title: {event.title}</p>
+              <p> {event.title}</p>
               <img src={event.image_url} alt='event' />
-              <p>Date: {event.date}</p>
-              <p>Location:{event.location} </p>
-              <p>What to Expect: {event.description}</p>
+              <p> {event.date}</p>
+              <p>{event.location} </p>
+              {/* <p>What to Expect: {event.description}</p>
               <p>Start Time: {event.startTime}</p>
-              <p>End Time: {event.endTime}</p>
+              <p>End Time: {event.endTime}</p> */}
 
-            </div>
+              </div>
+              </Link>
           ))
           }
         </div>

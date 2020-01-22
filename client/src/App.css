@@ -92,11 +92,12 @@ main{
 }
 .event{
   width: 30vw;
-  height: 60vh;
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
   margin: 2vh 2vw;
   justify-content: flex-start;
+  text-align: center;
   border: 1px solid #1D1D2C;
   background-color: rgb(238, 170, 67);
   color: #1D1D2C;
@@ -306,6 +307,7 @@ justify-content: center;
   padding: 2.5vw;
   font-family: 'Bellefair', serif;
   font-size: 4vh;
+  border: 2px solid white;
 }
 
   

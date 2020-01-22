@@ -30,7 +30,7 @@ userRouter.get('/', async (req, res, next) => {
 
 userRouter.get('/verify', restrict, (req, res) => {
   const user = res.locals.user;
-  console.log(res.locals.user)
+  //console.log(res.locals.user)
   res.json(user);
 })
 

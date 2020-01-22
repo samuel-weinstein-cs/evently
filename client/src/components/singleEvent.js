@@ -18,7 +18,7 @@ class SingleEvent extends Component {
   async componentDidMount() {
     const event = await axios(`http://localhost:3000/event/${this.props.match.params.eventId}`);
 
-    console.log(event)
+    //console.log(event)
     const eventDat = event.data.event
     const users = await getAttendEvent(eventDat.id);
     let attending = false;
@@ -29,8 +29,8 @@ class SingleEvent extends Component {
         break;
       }
     }
-    console.log(attending);
-    console.log(users);
+    //console.log(attending);
+    //console.log(users);
     this.setState({
       attending,
       users:users.data.users,
@@ -104,7 +104,7 @@ class SingleEvent extends Component {
 
     return (
       <div>
-          
+
         <div className="singleEv">
           <h1>{this.state.title}</h1>
           <p>{this.state.date}</p>
@@ -122,7 +122,7 @@ class SingleEvent extends Component {
           <p> <span className="tags"> Starts at </span>   {this.state.startTime}</p>
           <p> <span className="tags"> Ends at </span>   {this.state.endTime}</p>
 
-          
+
 
           {this.props.currentUser&&<div className="attendBut">
               <button className="attendBut" onClick={this.handleAttend}>
@@ -231,7 +231,7 @@ class SingleEvent extends Component {
           <Link to="/event">Back to Explore Events Page</Link>
         </div>
 
-        
+
 
       </div>
     )

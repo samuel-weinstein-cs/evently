@@ -104,7 +104,7 @@ function HomePage(props) {
       <div className="upcoming-events">
         <span>Upcoming Events</span>
 
-       
+
         <CategoryRender
           category='Gaming'
         />
@@ -113,6 +113,12 @@ function HomePage(props) {
         />
         <CategoryRender
           category='Technology'
+        />
+        <CategoryRender
+          category='Health'
+        />
+        <CategoryRender
+          category='Music'
         />
       </div>
     </div>

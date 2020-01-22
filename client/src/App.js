@@ -47,7 +47,7 @@ class App extends Component {
   //register
   handleRegister = async (e, registerData) => {
     e.preventDefault();
-    console.log(registerData)
+    //console.log(registerData)
     if (!registerData.username || !registerData.password) {
       this.setState({
         errorText: "You must supply a username AND a password you jerk! "
@@ -65,7 +65,7 @@ class App extends Component {
   //verify
   handleVerify = async () => {
     const currentUser = await verifyUser();
-    console.log(currentUser);
+    //console.log(currentUser);
     if (currentUser) {
       this.setState({
         currentUser

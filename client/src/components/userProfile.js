@@ -17,9 +17,9 @@ class UserProfile extends Component {
     const userId = this.props.match.params.userId;
     const user = await axios(`http://localhost:3000/user/${userId}`);
     const attending = await getAttendUser(userId);
-    console.log(attending.data.events);
+    //console.log(attending.data.events);
     const userInfo = user.data.user;
-    console.log(userInfo);
+    //console.log(userInfo);
     this.setState({
       attending: attending.data.events,
       username: userInfo.username,

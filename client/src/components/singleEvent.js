@@ -18,22 +18,22 @@ class SingleEvent extends Component {
   async componentDidMount() {
     const event = await axios(`http://localhost:3000/event/${this.props.match.params.eventId}`);
 
-    console.log(event)
+    //console.log(event)
     const eventDat = event.data.event
     const users = await getAttendEvent(eventDat.id);
     let attending = false;
     const usersList = users.data.users;
-    for (const user in usersList){
-      if (this.props.currentUser && (this.props.currentUser.id === usersList[user].id)){
+    for (const user in usersList) {
+      if (this.props.currentUser && (this.props.currentUser.id === usersList[user].id)) {
         attending = true;
         break;
       }
     }
-    console.log(attending);
-    console.log(users);
+    //console.log(attending);
+    //console.log(users);
     this.setState({
       attending,
-      users:users.data.users,
+      users: users.data.users,
       title: eventDat.title,
       date: eventDat.date,
       category: eventDat.category,
@@ -70,7 +70,7 @@ class SingleEvent extends Component {
   }
 
   handleAttend = async () => {
-    if(this.state.attending){
+    if (this.state.attending) {
       const userList = this.state.users.filter(user => (user.id !== this.props.currentUser.id))
       this.setState({
         attending: false,
@@ -104,7 +104,7 @@ class SingleEvent extends Component {
 
     return (
       <div>
-          
+
         <div className="singleEv">
           <h1>{this.state.title}</h1>
           <h3>{this.state.date}</h3>
@@ -122,15 +122,14 @@ class SingleEvent extends Component {
           <h3> <span3 className="tags"> Starts at </span3>   {this.state.startTime}</h3>
           <h3> <span3 className="tags"> Ends at </span3>   {this.state.endTime}</h3>
 
-          
 
-          {this.props.currentUser&&<div className="attendBut">
-              <button className="attendBut" onClick={this.handleAttend}>
-                {this.state.attending?
-                  'Un-Attend Event':
-                  'Attend Event'
-                }
-              </button>
+          {this.props.currentUser && <div className="attendBut">
+            <button className="attendBut" onClick={this.handleAttend}>
+              {this.state.attending ?
+                'Un-Attend Event' :
+                'Attend Event'
+              }
+            </button>
           </div>}
 
           <h2>Members Attending</h2>
@@ -140,98 +139,98 @@ class SingleEvent extends Component {
 
                 {this.state.users && this.state.users.map((user, key) => (
                   <div className="attendProf">
-                  <Link   to={`/user/${user.id}`} key={key}>{user.username}
-                    <br/>
-                  <img src={user.image_url} alt="profile pic" />
-                  </Link>
+                    <Link to={`/user/${user.id}`} key={key}>{user.username}
+                      <br />
+                      <img src={user.image_url} alt="profile pic" />
+                    </Link>
                   </div>
                 ))}
-              </div>:
+              </div> :
               <span>No Memebers Attending At the Moment</span>
             }
           </div>
-          {this.props.currentUser&&<div>
-          {this.state.changes === false ?
+          {this.props.currentUser && <div>
+            {this.state.changes === false ?
 
-            <button onClick={this.needsUpdate}>Need to make any changes?</button>
+              <button onClick={this.needsUpdate}>Update</button>
 
-            :
+              :
 
-            <form onSubmit={(e) => this.handleUpdate(e, this.state)}>
-              <button>Hide</button>
-              <br />
-              <input type="text" name="title" value={this.state.title} placeholder="Name of Event" onChange={this.handleChange} />
+              <form onSubmit={(e) => this.handleUpdate(e, this.state)}>
+                <button>Hide</button>
+                <br />
+                <input type="text" name="title" value={this.state.title} placeholder="Name of Event" onChange={this.handleChange} />
 
-              <div className="submitForm">
+                <div className="submitForm">
 
-                <input
-                  type="text"
-                  name="category"
-                  value={this.state.category}
-                  placeholder="Category of Event"
-                  onChange={this.handleChange}
-                />
-                <input
-                  type="text"
-                  name="entry"
-                  value={this.state.entry}
-                  placeholder="Any entry fees?"
-                  onChange={this.handleChange}
-                />
+                  <input
+                    type="text"
+                    name="category"
+                    value={this.state.category}
+                    placeholder="Category of Event"
+                    onChange={this.handleChange}
+                  />
+                  <input
+                    type="text"
+                    name="entry"
+                    value={this.state.entry}
+                    placeholder="Any entry fees?"
+                    onChange={this.handleChange}
+                  />
 
-                <input
+                  <input
 
-                  type="text"
-                  name="description"
-                  value={this.state.description}
-                  placeholder="Event Details"
-                  onChange={this.handleChange}
-                />
-                <input
-                  type="text"
-                  name="date"
-                  value={this.state.date}
-                  placeholder="Date of Event"
-                  onChange={this.handleChange}
-                />
-                <input
-                  type="text"
-                  name="location"
-                  value={this.state.location}
-                  placeholder="Address/Location"
-                  onChange={this.handleChange}
-                />
-                <input
-                  type="text"
-                  name="startTime"
-                  value={this.state.startTime}
-                  placeholder="Start Time"
-                  onChange={this.handleChange}
-                />
-                <input
-                  type="text"
-                  name="endTime"
-                  value={this.state.endTime}
-                  placeholder="End Time"
-                  onChange={this.handleChange}
-                />
-                <input type="submit" />
+                    type="text"
+                    name="description"
+                    value={this.state.description}
+                    placeholder="Event Details"
+                    onChange={this.handleChange}
+                  />
+                  <input
+                    type="text"
+                    name="date"
+                    value={this.state.date}
+                    placeholder="Date of Event"
+                    onChange={this.handleChange}
+                  />
+                  <input
+                    type="text"
+                    name="location"
+                    value={this.state.location}
+                    placeholder="Address/Location"
+                    onChange={this.handleChange}
+                  />
+                  <input
+                    type="text"
+                    name="startTime"
+                    value={this.state.startTime}
+                    placeholder="Start Time"
+                    onChange={this.handleChange}
+                  />
+                  <input
+                    type="text"
+                    name="endTime"
+                    value={this.state.endTime}
+                    placeholder="End Time"
+                    onChange={this.handleChange}
+                  />
+                  <input type="submit" />
 
-              </div>
+                </div>
 
-            </form>
-          }
+              </form>
+            }
 
-          <button onClick={(e) => this.handleDelete(e)}>
-            Delete Event
+            <button onClick={(e) => this.handleDelete(e)}>
+              Delete
           </button>
           </div>}
-          <br/>
+          <br />
 
           <Link to="/event">Back to Explore Events Page</Link>
         </div>
 
-        
+
 
       </div>
     )

@@ -22,7 +22,7 @@ class Login extends Component {
       <div className="login">
         <p>Welcome to <span1>Evently!</span1></p>
         <p>Enter username and password to continue. </p>
-              <br/>
+        <br />
         {this.props.isLoggedOut ?
           <form className="login-form" onSubmit={(e) =>
             this.props.handleLogin(e,
@@ -48,12 +48,12 @@ class Login extends Component {
             />
             <input
               type="submit"
-              className="createButton"
+
               value="Log in"
 
             />
           </form> : <Redirect to="/" />}
-        <br/>
+        <br />
         <Link to="/register">
           <span1>New User? Sign up here</span1>
         </Link>

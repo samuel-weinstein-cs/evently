@@ -12,7 +12,8 @@
   font-weight: 10;
   top: 0;
   left:0;
-  width: 100vw;
+ width: 100vw;
+
 }
 .home-page{
   width: 80vw;
@@ -26,6 +27,7 @@ h1{
   font-size: 4vw;
 }
 body{
+  width: 100%;
   background-color: #1D1D2C;
   font-family: 'Lato', sans-serif;
   color: white;
@@ -115,6 +117,8 @@ nav{
   justify-content: flex-end;
 
 }
+
+
 a{
   text-decoration: none;
   color:white;
@@ -122,7 +126,7 @@ a{
 .createButton{
   text-align:center;
   width: 20vw;
-  height: 4.5vh;
+  min-height: 4.5vh;
   border: .1vw solid white;
   margin: 1vh  1vw;
   display: flex;
@@ -133,11 +137,11 @@ a{
 
 }
 h2{
-  font-size: 2rem;
+  font-size: 2vw;
 }
 p{
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.5vw;
   display: flex;
   /* justify-content: space-between; */
 }
@@ -180,7 +184,7 @@ input{
   height: 3vh;
   margin: 1vh 1vw;
   font-size: 1vw;
-  background-color: #1D1D2C;
+  background-color: white;
 }
 
 .createForm input{
@@ -237,7 +241,7 @@ span1{
 .events-by-category{
 display: flex;
 flex-wrap: wrap;
-justify-content: center;
+justify-content: flex-start;
 }
 
 .events-by-category .event{
@@ -249,16 +253,16 @@ justify-content: center;
 }
 
 .upcoming-events{
-
   background-color: rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding: 2vh 2vw;
 }
 
 .singleEv {
-  margin: 2vw 50vw;
+  margin: 10vh 10vw;
   /* background-color: #FF9C5B; */
   background-color: #F5644A;
   padding: 2.5vw;
@@ -415,11 +419,13 @@ span2 {
   color: #EC2F3A
 }
 
-@media only screen and (max-width: 300px)
+@media only screen and (max-width:760px )
 
 {
   .event{
- height: 10vh;
-
+ min-height: 5vh;
+}
+.categoriesContainer a{
+  height: 5vh
 }
 }

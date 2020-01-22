@@ -4,7 +4,7 @@ const main = async () => {
   try {
     await sequelize.sync({ force: true });
   } catch (e) {
-    console.log(e.message);
+    //console.log(e.message);
   } finally {
     process.exit();
   }

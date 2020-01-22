@@ -34,7 +34,7 @@ export const loginUser = async (loginData) => {
 }
 
 export const registerUser = async (registerData) => {
-  const resp = await api.post('user/register', registerData);
+  const resp = await api.post('/user/register', registerData);
   localStorage.setItem('authToken', resp.data.token);
   api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`;
   console.log(resp.data)
@@ -67,21 +67,26 @@ export const deleteEvent = async (eventToDeleteId) => {
 }
 
 export const updateEvent = async (eventId, updateEvent) => {
-  const resp = await api.put(`event/${eventId}`, updateEvent);
+  const resp = await api.put(`/event/${eventId}`, updateEvent);
   localStorage.setItem('authToken', resp.data.token);
   api.defaults.headers.common.authorization = `Bearer ${resp.data.token}`;
   return resp.data.user;
 }
 
 export const attendEvent = async(eventId) => {
-  await api.post(`event/${eventId}/attending`);
+  await api.post(`/event/${eventId}/attending`);
 }
 
 export const deleteAttendEvent = async(eventId) => {
-  await api.delete(`event/${eventId}/attending`);
+  await api.delete(`/event/${eventId}/attending`);
 }
 
 export const getAttendEvent = async(eventId) => {
-  const resp = await api.get(`event/${eventId}/attending`);
+  const resp = await api.get(`/event/${eventId}/attending`);
+  return resp;
+}
+
+export const getAttendUser = async(userId) => {
+  const resp = await api.get(`/user/${userId}/attending`);
   return resp;
 }

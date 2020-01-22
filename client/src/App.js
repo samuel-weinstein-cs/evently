@@ -65,6 +65,7 @@ class App extends Component {
   //verify
   handleVerify = async () => {
     const currentUser = await verifyUser();
+    console.log(currentUser);
     if (currentUser) {
       this.setState({
         currentUser
@@ -87,6 +88,7 @@ class App extends Component {
   async componentDidMount() {
     const userData = await getUsers();
     const eventData = await getEvents();
+    await this.handleVerify();
     this.setState({
       users: userData.data,
       userApiDataLoaded: true,

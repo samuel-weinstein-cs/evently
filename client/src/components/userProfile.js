@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import axios from "axios";
-import { Link } from "react-router-dom"
+import {getAttendUser} from "../services/api_helper";
+import {Link} from "react-router-dom"
 
 
 class UserProfile extends Component {
@@ -8,16 +9,19 @@ class UserProfile extends Component {
     super(props);
 
     this.state = {
-
+      attending: null
     }
   }
 
   componentDidMount = async () => {
-    let user = await axios(`http://localhost:3000/user/${this.props.match.params.userId}`)
-
-    let userInfo = user.data.user
-    console.log(userInfo)
+    const userId = this.props.match.params.userId;
+    const user = await axios(`http://localhost:3000/user/${userId}`);
+    const attending = await getAttendUser(userId);
+    console.log(attending.data.events);
+    const userInfo = user.data.user;
+    console.log(userInfo);
     this.setState({
+      attending: attending.data.events,
       username: userInfo.username,
       image_url: userInfo.image_url,
       description: userInfo.description,
@@ -27,28 +31,26 @@ class UserProfile extends Component {
     })
   }
 
-
-
-
-
   render() {
-
-
     return (
       <div className="user">
         <div className="userProf">
           <div className="profilePic">
-        <h1>{this.state.username}</h1>
+            <h1>{this.state.username}</h1>
             <img className="userImg" src={this.state.image_url} alt='user' />
           </div>
           <div className="profileInfo">
-          <h3>A little about me: <br /> {this.state.description}</h3>
-        <h2>Interests: {this.state.interests}</h2>
-       
+            <h2>A little about me:</h2>
+            <p>{this.state.description}</p>
+            <h2>Interests:</h2>
+            <p>{this.state.interests}</p>
             <p>Member Since: {this.state.join_date}</p>
-            </div>
+            <h2>Attending Events:</h2>
+            {this.state.attending&&this.state.attending.map((event, key)=> (
+              <Link to={`/event/${event.id}`} key={key}><p>{event.title}</p></Link>
+            ))}
+          </div>
         </div>
-        <Link to="/event">Back To Explore Events Page</Link>
       </div>
     )
   }

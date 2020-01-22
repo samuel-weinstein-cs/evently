@@ -107,20 +107,20 @@ class SingleEvent extends Component {
 
         <div className="singleEv">
           <h1>{this.state.title}</h1>
-          <p>{this.state.date}</p>
-          <p> <span className="tags">Category: </span> {this.state.category}</p>
+          <h3>{this.state.date}</h3>
+          <h3> <span3 className="tags">Category: </span3> {this.state.category}</h3>
           <div className="sizing">
-            <br />
+          
             <img className="centImg" src={this.state.image_url} />
-            <br />
-          </div>
-          <p> <span className="tags"> Description: </span>  {this.state.description} </p>
-          <br />
-          <p><span className="tags"> Entry Fee: </span>  {this.state.entry}</p>
-          <p>
-            <span className="tags"> Location: </span>   {this.state.location}</p>
-          <p> <span className="tags"> Starts at </span>   {this.state.startTime}</p>
-          <p> <span className="tags"> Ends at </span>   {this.state.endTime}</p>
+            <br/>
+            </div>
+          <h3> <span3 className="tags"> Description: </span3>  {this.state.description} </h3>
+          
+          <h3><span3 className="tags"> Entry Fee: </span3>  {this.state.entry}</h3>
+          <h3>
+            <span3 className="tags"> Location: </span3>   {this.state.location}</h3>
+          <h3> <span3 className="tags"> Starts at </span3>   {this.state.startTime}</h3>
+          <h3> <span3 className="tags"> Ends at </span3>   {this.state.endTime}</h3>
 
 
           {this.props.currentUser && <div className="attendBut">

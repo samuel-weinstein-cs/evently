@@ -85,13 +85,13 @@ function HomePage(props) {
               <FaPlane className="icon" />
               Travel
             </Link>
-            <Link to="/events/healthandfitness"
+            <Link to="/events/healt1"
               category="health and fitness"
               className="categoryIcons">
               <FaHeartbeat className="icon" />
               Health and Fitness
             </Link>
-            <Link to="/art"
+            <Link to="/events/art"
               category="Art"
               className="categoryIcons">
               <FaPaintBrush className="icon" />

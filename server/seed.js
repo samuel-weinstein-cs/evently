@@ -387,9 +387,21 @@ const seed = async () => {
   await maleeha.addEvent(event3);
 
 
-  await event1.addUser(maleeha);
+  await event1.addUser(maleeha, richard);
   await event2.addUser(maleeha);
   await event3.addUser(maleeha);
+  await event4.addUser(maleeha);
+  await event5.addUser(maleeha);
+  await event6.addUser(maleeha);
+  await event7.addUser(maleeha);
+  await event8.addUser(maleeha);
+  await event9.addUser(maleeha);
+  await event10.addUser(maleeha);
+  await event11.addUser(maleeha);
+  await event12.addUser(maleeha);
+  await event13.addUser(maleeha);
+  await event14.addUser(maleeha);
+  await event15.addUser(maleeha);
 
   await event1.addUser(sam);
   await event2.addUser(sam);

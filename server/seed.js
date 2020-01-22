@@ -330,6 +330,57 @@ const seed = async () => {
     "interests": "Coding, Food, Day-trading, Gambling, Gaming",
     "join_date": "Jan 17, 2020"
   })
+  const barney = await User.create({
+    "username": "Barney",
+    "password_digest": "$2b$11$jKeBUnZYoPIgRki.U5B5o.UMR6TtECB3e0HQvkwWVrse5JJBroC2C",
+    "image_url": "https://am21.akamaized.net/tms/cnt/uploads/2019/10/Why-in-the-World-Would-We-Need-a-FKing-Barney-Movie-1200x630.jpg",
+    "description": "I'm a dinosaur m8",
+    "interests": "Children",
+    "join_date": "Jan 21, 2020"
+  })
+  const sonic = await User.create({
+    "username": "Sonic",
+    "password_digest": "$2b$11$jKeBUnZYoPIgRki.U5B5o.UMR6TtECB3e0HQvkwWVrse5JJBroC2C",
+    "image_url": "https://2.bp.blogspot.com/-vf2llP8p2Lk/XMusq1o18kI/AAAAAAAAeW8/AJUUWFoqqyU8Cdd5opt-impg0aWiUO3XACLcBGAs/s1600/D5a_bXdWwAItWib.jpg",
+    "description": "I'm a dinosaur m8",
+    "interests": "Speed, Rings, Upside-Downess",
+    "join_date": "Jan 21, 2020"
+  })
+  const trump = await User.create({
+    "username": "Donald Trump",
+    "password_digest": "$2b$11$jKeBUnZYoPIgRki.U5B5o.UMR6TtECB3e0HQvkwWVrse5JJBroC2C",
+    "image_url": "https://www.telegraph.co.uk/content/dam/news/2016/08/11/trumpoutrageous_trans_NvBQzQNjv4BqqBYMlWmNSsYKmyFVDYjgrUHQvb2UFjW03QidnNDMhGA.jpg?imwidth=450",
+    "description": "I have big hands. My favorite past time is embaressing the United States on a global scale, so I do it daily.",
+    "interests": "Money, Hookers, Gluttony, Taco Bowls",
+    "join_date": "Jan 21, 2020"
+  })
+  const elon = await User.create({
+    "username": "Elon Musk",
+    "password_digest": "$2b$11$jKeBUnZYoPIgRki.U5B5o.UMR6TtECB3e0HQvkwWVrse5JJBroC2C",
+    "image_url": "https://image.cnbcfm.com/api/v1/image/105797039-1552679350641gettyimages-1130598318.jpeg?v=1579274029&w=1400&h=950",
+    "description": "Totes obsessed with living on mars. About 5/10 years from becoming Lex Luther. I bet you wish you bought Tesla back in the day ;)",
+    "interests": "Space, Billionarism, Tunnels, Science",
+    "join_date": "Jan 21, 2020"
+  })
+  const mario = await User.create({
+    "username": "Mario",
+    "password_digest": "$2b$11$jKeBUnZYoPIgRki.U5B5o.UMR6TtECB3e0HQvkwWVrse5JJBroC2C",
+    "image_url": "https://lh3.googleusercontent.com/5LIMaa7WTNy34bzdFhBETa2MRj7mFJZWb8gCn_uyxQkUvFx_uOFCeQjcK16c6WpBA3E",
+    "description": "IttsssAA me, MARIO",
+    "interests": "Princesses, Mushrooms, Pipes, Dinosaurs",
+    "join_date": "Jan 21, 2020"
+  })
+  const jlo = await User.create({
+    "username": "J-Lo",
+    "password_digest": "$2b$11$jKeBUnZYoPIgRki.U5B5o.UMR6TtECB3e0HQvkwWVrse5JJBroC2C",
+    "image_url": "https://a57.foxnews.com/static.foxnews.com/foxnews.com/content/uploads/2019/05/931/524/jennifer-lopez-AP.jpg?ve=1&tl=1",
+    "description": "I am very famous. I was in the movie The Cell and I am assuming somewhere in my career I won a grammy.",
+    "interests": "Dance, Song, Acting",
+    "join_date": "Jan 21, 2020"
+  })
+
+
+
 
   await maleeha.addEvent(event1);
   await maleeha.addEvent(event2);

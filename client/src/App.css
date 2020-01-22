@@ -273,9 +273,11 @@ justify-content: center;
 
 .attend {
   width: 45vw;
-  background-color: #FF9C5B;
+  background-color: #F5644A;
   padding: 1vw;
-  border: 2px solid white;
+  /* border: 2px solid white; */
+  display: flex;
+  flex-wrap: wrap;
   
   
 }
@@ -378,6 +380,7 @@ align-items: center;
 
 .attendPic {
   display: flex;
+  flex-wrap: wrap;
   
   
 }
@@ -385,7 +388,7 @@ align-items: center;
 .attendProf {
   text-align: center;
   border: .1vw solid white;
-  background-color: white;
+  background-color: #f0a728;
   margin: 1vw;
   border-radius: 5px;
 }

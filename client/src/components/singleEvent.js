@@ -18,7 +18,7 @@ class SingleEvent extends Component {
   async componentDidMount() {
     const event = await axios(`http://localhost:3000/event/${this.props.match.params.eventId}`);
 
-    console.log(event)
+    //console.log(event)
     const eventDat = event.data.event
     const users = await getAttendEvent(eventDat.id);
     let attending = false;
@@ -29,8 +29,8 @@ class SingleEvent extends Component {
         break;
       }
     }
-    console.log(attending);
-    console.log(users);
+    //console.log(attending);
+    //console.log(users);
     this.setState({
       attending,
       users:users.data.users,
@@ -109,7 +109,7 @@ class SingleEvent extends Component {
           <p>{this.state.date}</p>
           <p> <span className="tags">Category: </span> {this.state.category}</p>
             <div className="sizing">
-            <img className="centImg" src={this.state.image_url} />
+            <img className="centImg" alt="event" src={this.state.image_url} />
             </div>
           <p> <span className="tags"> Description: </span>  {this.state.description} </p>
           <p><span className="tags"> Entry Fee: </span>  {this.state.entry}</p>

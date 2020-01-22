@@ -10,9 +10,9 @@ const hashPassword = async (password) => {
 }
 
 const checkPassword = async (password, password_digest) => {
-  console.log(typeof (password), typeof (password_digest))
-  console.log(password.length, password_digest.length)
-  console.log(await bcrypt.compare(password, password_digest))
+  //console.log(typeof (password), typeof (password_digest))
+  //console.log(password.length, password_digest.length)
+  //console.log(await bcrypt.compare(password, password_digest))
   return await bcrypt.compare(password, password_digest);
 }
 

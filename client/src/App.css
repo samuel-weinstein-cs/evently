@@ -79,7 +79,7 @@ main{
 
 }
 .events-wrapper{
- 
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -101,7 +101,7 @@ main{
   background-color: rgb(238, 170, 67);
   color: #1D1D2C;
   padding: 1vh 1vw;
- 
+
 }
 img:hover{
   opacity: 0.5;
@@ -130,11 +130,14 @@ a{
  align-items: center;
  font-size: 1vw;
  color: white;
- 
+
+}
+h2{
+  font-size: 2rem;
 }
 p{
   margin: 0;
-  font-size: 2vw;
+  font-size: 1.5rem;
   display: flex;
   justify-content: space-between;
 }
@@ -157,7 +160,7 @@ button{
   height: 4.5vh;
   border: .1vw solid white;
   margin: 1vh  1vw;
-  
+
 }
 .loginForm{
   display: flex;
@@ -183,7 +186,7 @@ input{
   background-color: white;
   color: #1D1D2C;
 }
-a :hover{
+a :{
   color:#F5644A;
 }
 span{
@@ -245,12 +248,12 @@ justify-content: center;
 }
 
 .upcoming-events{
- 
+
   background-color: rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
 }
 
 .singleEv {
@@ -309,7 +312,7 @@ justify-content: center;
   font-size: 4vh;
 }
 
-  
+
 label-text{
   margin: 0;
   font-size: 1.75vw;
@@ -323,7 +326,7 @@ label-text{
 
 .profilePic{
   padding: 1vw;
-  
+
 }
 
 .profileInfo {

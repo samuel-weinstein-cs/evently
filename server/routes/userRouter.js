@@ -28,6 +28,12 @@ userRouter.get('/', async (req, res, next) => {
   }
 })
 
+userRouter.get('/verify', restrict, (req, res) => {
+  const user = res.locals.user;
+  console.log(res.locals.user)
+  res.json(user);
+})
+
 userRouter.get('/:id', async (req, res, next) => {
   try {
     const id = req.params.id;
@@ -123,12 +129,6 @@ userRouter.post('/login', async (req, res) => {
   }
 });
 
-
-userRouter.get('/verify', restrict, (req, res) => {
-  const user = res.locals.user;
-  res.json(user);
-})
-
 userRouter.put('/:id', restrict, async (req, res, next) => {
   try{
     const userId = res.locals.user.id;
@@ -145,11 +145,6 @@ userRouter.put('/:id', restrict, async (req, res, next) => {
     console.error(e);
     next(e);
   }
-})
-
-userRouter.get('/verify', restrict, (req, res) => {
-  const user = res.locals.user;
-  res.json(user);
 })
 
 module.exports = userRouter;

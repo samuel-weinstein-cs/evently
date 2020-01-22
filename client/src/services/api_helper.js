@@ -1,6 +1,6 @@
 import axios from 'axios';
 const api = axios.create({
-  baseURL: "http://localhost:3000" //https://pure-mesa-34992.herokuapp.com/
+  baseURL: "https://fierce-tundra-59465.herokuapp.com/" //https://pure-mesa-34992.herokuapp.com/
 })
 
 export const getUsers = async () => {

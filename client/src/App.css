@@ -19,7 +19,10 @@
 }
 .home-heading{
   font-family: 'Ramabhadra', sans-serif;
-
+  color: #EC2F3A;
+  font-size: 2vw;;
+  padding: 1vh 1vw;
+  margin: 1vh 1vw; 
 }
 h1{
   font-family: 'Molle', cursive;
@@ -83,7 +86,7 @@ main{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .explore-events{
@@ -92,7 +95,7 @@ main{
 }
 .event{
   width: 30vw;
-  height: 60vh;
+  height: 50vh;
   display: flex;
   flex-direction: column;
   margin: 2vh 2vw;
@@ -249,8 +252,8 @@ justify-content: center;
   background-color: rgba(255, 255, 255, 0.1);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center; 
+  justify-content: flex-start;
+  align-items: flex-start; 
 }
 
 .singleEv {
@@ -350,5 +353,4 @@ color: #1D1D2C
   border: .25vw solid white;
   font-family: 'Notable', sans-serif;
   font-size: 1.25vw;
-  color:;
 }

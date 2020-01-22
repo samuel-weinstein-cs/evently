@@ -4,6 +4,7 @@ import { FaHamburger, FaLaptop, FaBookOpen, FaDog, FaMusic, FaGamepad, FaHeartbe
 import { GiBallerinaShoes, GiMaterialsScience, GiRaceCar }
   from "react-icons/gi"
 
+import CategoryRender from './categoryRender.js'
 
 
 function HomePage(props) {
@@ -84,13 +85,13 @@ function HomePage(props) {
               <FaPlane className="icon" />
               Travel
             </Link>
-            <Link to="/events/healthandfitness"
-              category="health and fitness"
+            <Link to="/events/health"
+              category="health"
               className="categoryIcons">
               <FaHeartbeat className="icon" />
-              Health and Fitness
+              Health
             </Link>
-            <Link to="/art"
+            <Link to="/events/art"
               category="Art"
               className="categoryIcons">
               <FaPaintBrush className="icon" />
@@ -103,63 +104,16 @@ function HomePage(props) {
       <div className="upcoming-events">
         <span>Upcoming Events</span>
 
-        <Link to={`/events/gaming`} category='Gaming' className="home-heading"  ><h2>Gaming</h2></Link>
-        <div className="events-by-category">
-          {props.eventApiDataLoaded && props.events.events.map(event => (
-            <div className="event">
-              <Link to={`/event/${event.id}`} id={event.id}  >
-                <div className="title">{event.title}</div>
-                <p className="details">{event.tagline}</p>
-                <img src={event.image_url} alt='event' />
-                <p className="details">When:{event.date}</p>
-              </Link>
-            </div>
-          ))
-          }
-        </div>
-        <Link to={`/events/womenintech`} category='WomenInTech' className="home-heading"  ><h2>Women In Tech</h2></Link>
-        <div className="events-by-category">
-          {props.eventApiDataLoaded && props.events.events.map(event => (
-            <div className="event">
-              <Link to={`/event/${event.id}`} id={event.id}  >
-                <div className="title">{event.title}</div>
-                <p className="details">{event.tagline}</p>
-                <img src={event.image_url} alt='event' />
-                <p className="details">When:{event.date}</p>
-              </Link>
-            </div>
-          ))
-          }
-        </div>
+        <CategoryRender
+          category='Gaming'
+        />
+        <CategoryRender
+          category='Business'
+        />
+        <CategoryRender
+          category='Technology'
+        />
 
-        <Link to={`/events/business`} category='Business'  ><h2>Business</h2></Link>
-        <div className="events-by-category">
-          {props.eventApiDataLoaded && props.events.events.map(event => (
-            <div className="event">
-              <Link to={`/event/${event.id}`} id={event.id}  >
-                <div className="title">{event.title}</div>
-                <p className="details">{event.tagline}</p>
-                <img src={event.image_url} alt='event' />
-                <p className="details">When:{event.date}</p>
-              </Link>
-            </div>
-          ))
-          }
-        </div>
-        <Link to={`/events/school`} category='School'><h2>School</h2></Link>
-        <div className="events-by-category">
-          {props.eventApiDataLoaded && props.events.events.map(event => (
-            <div className="event">
-              <Link to={`/event/${event.id}`} id={event.id}  >
-                <div className="title">{event.title}</div>
-                <p className="details">{event.tagline}</p>
-                <img src={event.image_url} alt='event' />
-                <p className="details">When:{event.date}</p>
-              </Link>
-            </div>
-          ))
-          }
-        </div>
 
       </div>
     </div>

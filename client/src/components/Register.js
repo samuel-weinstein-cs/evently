@@ -23,7 +23,7 @@ class Register extends Component {
   render() {
     return (
       <div>
-        <p>Welcome to <span>Evently!</span></p>
+        <p>Welcome to <span1>Evently!</span1></p>
         <p>New user registration </p>
         {this.props.isLoggedOut ?
           <form className="registrationForm" onSubmit={(e) => this.props.handleRegister(e, this.state)}>

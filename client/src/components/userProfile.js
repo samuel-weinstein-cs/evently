@@ -15,7 +15,7 @@ class UserProfile extends Component {
 
   componentDidMount = async () => {
     const userId = this.props.match.params.userId;
-    const user = await axios(`http://localhost:3000/user/${userId}`);
+    const user = await axios(`https://fierce-tundra-59465.herokuapp.com/user/${userId}`);
     const attending = await getAttendUser(userId);
     //console.log(attending.data.events);
     const userInfo = user.data.user;

@@ -16,7 +16,7 @@ class SingleEvent extends Component {
   }
 
   async componentDidMount() {
-    const event = await axios(`http://localhost:3000/event/${this.props.match.params.eventId}`);
+    const event = await axios(`https://fierce-tundra-59465.herokuapp.com/event/${this.props.match.params.eventId}`);
 
     //console.log(event)
     const eventDat = event.data.event
@@ -110,12 +110,12 @@ class SingleEvent extends Component {
           <h3>{this.state.date}</h3>
           <h3> <span3 className="tags">Category: </span3> {this.state.category}</h3>
           <div className="sizing">
-          
+
             <img className="centImg" src={this.state.image_url} />
             <br/>
             </div>
           <h3> <span3 className="tags"> Description: </span3>  {this.state.description} </h3>
-          
+
           <h3><span3 className="tags"> Entry Fee: </span3>  {this.state.entry}</h3>
           <h3>
             <span3 className="tags"> Location: </span3>   {this.state.location}</h3>

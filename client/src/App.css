@@ -411,3 +411,12 @@ align-items: center;
 span2 {
   color: #EC2F3A
 }
+
+@media only screen and (max-width: 300px)
+
+{
+  .event{
+ height: 10vh;
+
+}
+}
